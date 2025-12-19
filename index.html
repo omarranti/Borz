@@ -1,0 +1,1455 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz</title>
+    <meta
+      name="description"
+      content="Borz Detailing Car Polish Services L.L.C — premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. Book instantly via WhatsApp or Telegram."
+    />
+    <meta name="keywords" content="car detailing Dubai, PPF wrapping, ceramic coating, car polishing, window tinting, Al Quoz detailing, luxury car care, paint protection film Dubai" />
+    <meta name="author" content="Borz Detailing" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://borzdetailing.com" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz" />
+    <meta
+      property="og:description"
+      content="Premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. Book instantly via WhatsApp or Telegram."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://borzdetailing.com" />
+    <meta property="og:image" content="public/images/Website landing with logo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:locale" content="en_AE" />
+    <meta name="theme-color" content="#0D0D0D" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="public/images/optimized/favicon.png" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz" />
+    <meta name="twitter:description" content="Premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai." />
+    <meta name="twitter:image" content="public/images/Website landing with logo.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      const BORZ_LINKS = {
+        whatsapp:
+          "https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0",
+        telegram: "https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95",
+        instagram: "https://instagram.com/borz_detailing_uae/?hl=en",
+        maps: "https://www.google.com/maps?q=Al%20Quoz%20Industrial%20Area%203%20Dubai",
+      };
+
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+            },
+            colors: {
+              borz: {
+                bg: "#0D0D0D",
+                surface: "#1A1A1A",
+                stroke: "#262626",
+                gold: "#C5A059",
+                blue: "#3B82F6",
+              },
+              whatsapp: "#25D366",
+              telegram: "#0088CC",
+            },
+            boxShadow: {
+              soft: "0 12px 30px rgba(0,0,0,0.45)",
+              glow: "0 0 0 1px rgba(197,160,89,0.25), 0 0 40px rgba(197,160,89,0.10)",
+            },
+            backgroundImage: {
+              "lux-glow":
+                "radial-gradient(700px circle at 20% 10%, rgba(197,160,89,0.25), transparent 60%), radial-gradient(700px circle at 80% 25%, rgba(0,136,204,0.18), transparent 55%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .grain:before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+        pointer-events: none;
+        mix-blend-mode: soft-light;
+      }
+      summary::-webkit-details-marker {
+        display: none;
+      }
+      /* Mobile-first: ensure content isn't covered by sticky bar */
+      @media (max-width: 768px) {
+        main {
+          padding-bottom: 100px;
+        }
+      }
+      /* Smooth fade-in animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeInUp 0.6s ease-out forwards;
+      }
+      /* Image lightbox styles */
+      .lightbox-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+        cursor: pointer;
+      }
+      .lightbox-overlay.active {
+        display: flex;
+      }
+      .lightbox-image {
+        max-width: 90vw;
+        max-height: 90vh;
+        object-fit: contain;
+        border-radius: 1rem;
+      }
+      /* Focus visible for accessibility */
+      *:focus-visible {
+        outline: 2px solid #C5A059;
+        outline-offset: 2px;
+      }
+      /* Smooth scroll behavior */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Image loading placeholder */
+      img {
+        background: linear-gradient(90deg, #1A1A1A 0%, #262626 50%, #1A1A1A 100%);
+        background-size: 200% 100%;
+        animation: loading 1.5s ease-in-out infinite;
+      }
+      @keyframes loading {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+      img[loading="lazy"] {
+        animation: none;
+      }
+    </style>
+
+    <!-- LocalBusiness Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoWash",
+        "name": "Borz Detailing Car Polish Services L.L.C",
+        "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
+        "description": "Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai.",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Dubai",
+          "addressRegion": "Dubai",
+          "addressCountry": "AE",
+          "streetAddress": "Al Quoz Ind. Third - Al Quoz"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "25.2048",
+          "longitude": "55.2708"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+            "opens": "09:00",
+            "closes": "20:00"
+          }
+        ],
+        "telephone": "+971563299615",
+        "priceRange": "$$",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.7",
+          "reviewCount": "32"
+        },
+        "sameAs": [
+          "https://instagram.com/borz_detailing_uae/?hl=en"
+        ],
+        "areaServed": {
+          "@type": "City",
+          "name": "Dubai"
+        },
+        "serviceType": [
+          "Car Detailing",
+          "PPF Wrapping",
+          "Ceramic Coating",
+          "Car Polishing",
+          "Window Tinting",
+          "Vehicle Painting"
+        ]
+      }
+    </script>
+    
+    <!-- Google Analytics placeholder (replace with your tracking ID) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
+  </head>
+
+  <body class="bg-borz-bg text-white font-sans antialiased">
+    <!-- Top bar -->
+    <header class="sticky top-0 z-50 border-b border-borz-stroke/70 bg-borz-bg/70 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <a href="#top" class="flex items-center gap-3">
+            <!-- Desktop Logo -->
+            <img 
+              src="public/images/optimized/Main Logo.jpg" 
+              alt="Borz Detailing Logo" 
+              class="hidden sm:block h-10 w-auto object-contain"
+              loading="eager"
+            />
+            <!-- Mobile Logo -->
+            <img 
+              src="public/images/optimized/mOBI.jpg" 
+              alt="Borz Detailing Logo" 
+              class="sm:hidden h-10 w-auto object-contain"
+              loading="eager"
+            />
+            <div class="hidden md:block leading-tight">
+              <div class="text-sm font-semibold tracking-[0.28em]">BORZ</div>
+              <div class="text-xs text-white/70 tracking-[0.22em]">DETAILING</div>
+            </div>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-7 text-sm text-white/80" aria-label="Main navigation">
+            <a class="hover:text-white transition" href="#services" aria-label="View services">Services</a>
+            <a class="hover:text-white transition" href="#gallery" aria-label="View gallery">Gallery</a>
+            <a class="hover:text-white transition" href="#packages" aria-label="View packages">Packages</a>
+            <a class="hover:text-white transition" href="#reviews" aria-label="Read reviews">Reviews</a>
+            <a class="hover:text-white transition" href="#contact" aria-label="Contact us">Contact</a>
+          </nav>
+
+          <div class="hidden md:flex items-center gap-2">
+            <a
+              class="inline-flex items-center justify-center rounded-xl border border-borz-stroke bg-borz-surface px-4 py-2 text-sm text-white/90 hover:border-white/20 hover:text-white transition shadow-soft"
+              href="https://instagram.com/borz_detailing_uae/?hl=en"
+              target="_blank"
+              rel="noopener"
+            >
+              Instagram
+            </a>
+            <a
+              class="inline-flex items-center justify-center rounded-xl bg-borz-gold px-4 py-2 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
+              href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener"
+            >
+              Get a Quote
+            </a>
+          </div>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menuBtn"
+            class="md:hidden rounded-xl border border-borz-stroke bg-borz-surface px-3 py-2 text-white/90 shadow-soft"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenu"
+          >
+            <div class="flex items-center gap-2">
+              <span class="text-xs tracking-widest">MENU</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+              </svg>
+            </div>
+          </button>
+        </div>
+
+        <!-- Mobile menu panel -->
+        <div id="mobileMenu" class="hidden md:hidden pb-4">
+          <div class="rounded-2xl border border-borz-stroke bg-borz-surface/60 overflow-hidden">
+            <a class="block px-4 py-3 text-sm text-white/85 hover:bg-white/5 transition" href="#services">Services</a>
+            <a class="block px-4 py-3 text-sm text-white/85 hover:bg-white/5 transition" href="#gallery">Gallery</a>
+            <a class="block px-4 py-3 text-sm text-white/85 hover:bg-white/5 transition" href="#packages">Packages</a>
+            <a class="block px-4 py-3 text-sm text-white/85 hover:bg-white/5 transition" href="#reviews">Reviews</a>
+            <a class="block px-4 py-3 text-sm text-white/85 hover:bg-white/5 transition" href="#contact">Contact</a>
+            <div class="grid grid-cols-2 gap-3 p-4 border-t border-borz-stroke">
+              <a
+                class="inline-flex items-center justify-center rounded-2xl bg-whatsapp px-4 py-3 text-sm font-semibold text-black hover:brightness-110 transition shadow-soft"
+                href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener"
+              >
+                WhatsApp
+              </a>
+              <a
+                class="inline-flex items-center justify-center rounded-2xl bg-telegram px-4 py-3 text-sm font-semibold text-white hover:brightness-110 transition shadow-soft"
+                href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+                target="_blank"
+                rel="noopener"
+              >
+                Telegram
+              </a>
+              <a
+                class="col-span-2 inline-flex items-center justify-center rounded-2xl border border-borz-stroke bg-borz-bg/60 px-4 py-3 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
+                href="https://instagram.com/borz_detailing_uae/?hl=en"
+                target="_blank"
+                rel="noopener"
+              >
+                Instagram
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <!-- HERO - Mobile-first optimized -->
+      <section class="relative overflow-hidden">
+        <div class="absolute inset-0 bg-lux-glow"></div>
+        <div class="absolute inset-0 grain"></div>
+
+        <div class="absolute inset-0 -z-10">
+          <!-- Video Background (uncomment and add your video path) -->
+          <!--
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            class="h-full w-full object-cover opacity-35"
+            poster="public/images/Website Hero Background (NO logo, just brand texture for behind UI).png"
+          >
+            <source src="borz-detailing-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          -->
+          
+          <!-- Hero Background Image -->
+          <img
+            src="public/images/optimized/hero-bg.jpg"
+            alt="Borz Detailing workshop"
+            class="h-full w-full object-cover opacity-35"
+            loading="eager"
+          />
+          <div class="absolute inset-0 bg-gradient-to-b from-borz-bg/10 via-borz-bg/70 to-borz-bg"></div>
+        </div>
+
+        <div class="mx-auto max-w-6xl px-4 py-12 md:py-24">
+          <div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+            <!-- Left: Hero content - Mobile optimized -->
+            <div class="max-w-[28ch] md:max-w-none">
+              <div class="inline-flex items-center gap-2 rounded-full border border-borz-stroke bg-borz-surface/70 px-3 py-1 text-xs text-white/80">
+                <span class="h-2 w-2 rounded-full bg-borz-gold"></span>
+                Al Quoz • Dubai • Dark Luxury Workshop
+              </div>
+
+              <!-- Rating badge - visible above fold on mobile -->
+              <div class="mt-4 inline-flex items-center gap-2 rounded-xl border border-borz-stroke bg-borz-surface px-3 py-2 text-sm text-white/85 shadow-soft">
+                <span class="text-borz-gold font-semibold">4.7 ★</span>
+                <span class="text-white/60">|</span>
+                <span>32+ reviews</span>
+              </div>
+
+              <h1 class="mt-5 text-3xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl" style="max-width: 28ch;">
+                The Ultimate Care for Your <span class="text-borz-gold">Supercar</span>.
+              </h1>
+
+              <p class="mt-4 text-base leading-relaxed text-white/75 md:text-lg md:max-w-prose">
+                Premium detailing, PPF wrapping, and ceramic coating — delivered by a professional team with a
+                showroom-level finish.
+              </p>
+
+              <!-- Trust badges -->
+              <div class="mt-6 flex flex-wrap items-center gap-3">
+                <div class="inline-flex items-center gap-2 rounded-xl border border-borz-stroke bg-borz-surface px-3 py-2 text-sm text-white/85">
+                  <span class="text-white/60">Languages:</span>
+                  <span class="font-medium">EN</span><span class="text-white/40">•</span><span class="font-medium">AR</span
+                  ><span class="text-white/40">•</span><span class="font-medium">RU</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-xl border border-borz-stroke bg-borz-surface px-3 py-2 text-sm text-white/85">
+                  <span class="text-borz-gold">☕</span>
+                  <span>Luxury lounge + coffee</span>
+                </div>
+              </div>
+
+              <!-- CTAs - Mobile optimized -->
+              <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <a
+                  href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-2 rounded-2xl bg-whatsapp px-5 py-4 text-sm font-semibold text-black shadow-soft transition hover:brightness-110"
+                >
+                  Chat on WhatsApp
+                </a>
+
+                <a
+                  href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center justify-center gap-2 rounded-2xl bg-telegram px-5 py-4 text-sm font-semibold text-white shadow-soft transition hover:brightness-110"
+                >
+                  Book via Telegram
+                </a>
+
+                <a
+                  href="https://instagram.com/borz_detailing_uae/?hl=en"
+                  target="_blank"
+                  rel="noopener"
+                  class="sm:col-span-2 inline-flex items-center justify-center gap-2 rounded-2xl border border-borz-stroke bg-borz-surface px-5 py-4 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
+                >
+                  View Portfolio on Instagram
+                </a>
+              </div>
+
+              <!-- Quick stats -->
+              <div class="mt-8 grid grid-cols-3 gap-3 rounded-2xl border border-borz-stroke bg-borz-surface/60 p-4">
+                <div class="text-center">
+                  <div class="text-sm font-semibold text-white">Protection</div>
+                  <div class="mt-1 text-xs text-white/60">PPF + Ceramic</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-sm font-semibold text-white">Correction</div>
+                  <div class="mt-1 text-xs text-white/60">Polish + Paint</div>
+                </div>
+                <div class="text-center">
+                  <div class="text-sm font-semibold text-white">Comfort</div>
+                  <div class="mt-1 text-xs text-white/60">Lounge + Coffee</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Hero card - Desktop only on larger screens -->
+            <div class="relative hidden md:block">
+              <div class="rounded-3xl border border-borz-stroke bg-borz-surface/70 p-6 shadow-soft">
+                <div class="flex items-center justify-between">
+                  <div>
+                    <div class="text-xs tracking-widest text-white/60">SIGNATURE</div>
+                    <div class="mt-1 text-lg font-semibold">What we specialize in</div>
+                  </div>
+                  <div class="rounded-full border border-borz-stroke bg-borz-bg px-3 py-1 text-xs text-white/70">
+                    Open daily • Closes 8 PM
+                  </div>
+                </div>
+
+                <div class="mt-5 grid gap-3">
+                  <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                    <div class="text-sm font-semibold">Paint Protection Film (PPF)</div>
+                    <div class="mt-1 text-sm text-white/70">Premium protection against chips, swirls, and wear.</div>
+                  </div>
+                  <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                    <div class="text-sm font-semibold">Ceramic Coating</div>
+                    <div class="mt-1 text-sm text-white/70">Hydrophobic shine and easier maintenance.</div>
+                  </div>
+                  <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                    <div class="text-sm font-semibold">Deep Detailing</div>
+                    <div class="mt-1 text-sm text-white/70">Interior + exterior perfection, down to the last detail.</div>
+                  </div>
+                </div>
+
+                <div class="mt-5 flex flex-wrap items-center gap-2 text-xs text-white/60">
+                  <span class="rounded-full border border-borz-stroke bg-borz-bg px-3 py-1">Multilingual staff</span>
+                  <span class="rounded-full border border-borz-stroke bg-borz-bg px-3 py-1">Premium materials</span>
+                  <span class="rounded-full border border-borz-stroke bg-borz-bg px-3 py-1">Warranty options</span>
+                </div>
+              </div>
+
+              <div class="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-tr from-borz-gold/22 via-transparent to-telegram/12 blur-2xl"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIDEO SECTION - Optional showcase video -->
+      <section id="video" class="mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">See Us in Action</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Watch our team deliver premium detailing and protection services.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-8 overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft">
+          <!-- Video Player -->
+          <div class="relative aspect-video bg-borz-bg">
+            <video
+              id="mainVideo"
+              class="h-full w-full object-cover"
+              controls
+              preload="metadata"
+              poster="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
+            >
+              <source src="borz-detailing-video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            
+            <!-- Custom Play Button Overlay (optional) -->
+            <div id="videoOverlay" class="absolute inset-0 flex items-center justify-center bg-borz-bg/40 cursor-pointer group" onclick="playVideo()">
+              <div class="rounded-full bg-borz-gold/90 p-6 group-hover:bg-borz-gold transition">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-black ml-1">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GALLERY - Premium gallery with owner's photos -->
+      <section id="gallery" class="mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Our Work</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Premium finishes, precision installations, and showroom-quality results.
+            </p>
+          </div>
+          <a
+            class="hidden md:inline-flex items-center gap-2 rounded-xl border border-borz-stroke bg-borz-surface px-4 py-2 text-sm text-white/85 hover:text-white hover:border-white/20 transition"
+            href="https://instagram.com/borz_detailing_uae/?hl=en"
+            target="_blank"
+            rel="noopener"
+          >
+            View more on Instagram <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Gallery images - Mobile: aspect-[4/5], Desktop: aspect-[16/10] -->
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', 'Luxury car detailing - premium finish')" role="button" tabindex="0" aria-label="View luxury car detailing image" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', 'Luxury car detailing - premium finish')}">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80 400w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80 800w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Luxury car detailing - premium finish"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80', 'Car paint protection film installation')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&q=80 400w, https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80 800w, https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Car paint protection film installation"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80', 'Professional car polishing and detailing')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80 400w, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80 800w, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Professional car polishing and detailing"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80', 'Ceramic coating application on luxury vehicle')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80 400w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80 800w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Ceramic coating application on luxury vehicle"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80', 'Premium car wash and detailing service')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80 400w, https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80 800w, https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Premium car wash and detailing service"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80', 'Supercar detailing and paint correction')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&q=80 400w, https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80 800w, https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Supercar detailing and paint correction"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1494905998402-395d579af36f?w=1200&q=80', 'Interior car detailing and cleaning')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&q=80 400w, https://images.unsplash.com/photo-1494905998402-395d579af36f?w=800&q=80 800w, https://images.unsplash.com/photo-1494905998402-395d579af36f?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Interior car detailing and cleaning"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200&q=80', 'Car window tinting and protection')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&q=80 400w, https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80 800w, https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Car window tinting and protection"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200&q=80', 'Showroom-quality car finish and shine')">
+            <div class="aspect-[4/5] md:aspect-[16/10] relative">
+              <img
+                src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=400&q=80"
+                srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=400&q=80 400w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=80 800w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200&q=80 1200w"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                alt="Showroom-quality car finish and shine"
+                class="h-full w-full object-cover transition group-hover:scale-105"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
+                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Instagram CTA -->
+        <div class="mt-10 rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 md:p-8 shadow-soft">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h3 class="text-lg font-semibold md:text-xl">View Our Portfolio</h3>
+              <p class="mt-2 max-w-prose text-sm text-white/70">
+                See more of our premium work, behind-the-scenes, and customer transformations on Instagram.
+              </p>
+            </div>
+            <a
+              class="inline-flex items-center justify-center gap-2 rounded-2xl border border-borz-stroke bg-borz-bg/60 px-6 py-4 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
+              href="https://instagram.com/borz_detailing_uae/?hl=en"
+              target="_blank"
+              rel="noopener"
+            >
+              DM us on Instagram <span aria-hidden="true">→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="relative mx-auto max-w-6xl px-4 py-14 md:py-18">
+        <!-- Section background texture -->
+        <div class="absolute inset-0 -z-10 opacity-10">
+          <img 
+            src="public/images/optimized/section-texture.jpg" 
+            alt="" 
+            class="h-full w-full object-cover"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Services</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Premium treatments designed for Dubai conditions — heat, dust, and daily driving.
+            </p>
+          </div>
+          <a
+            class="hidden md:inline-flex items-center gap-2 rounded-xl border border-borz-stroke bg-borz-surface px-4 py-2 text-sm text-white/85 hover:text-white hover:border-white/20 transition"
+            href="#packages"
+          >
+            View packages <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80"
+              alt="PPF wrapping"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">PPF Wrapping</h3>
+              <p class="mt-2 text-sm text-white/70">Protect your paint with precision-installed film.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">Stone-chip & scratch defense</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&q=80"
+              alt="Ceramic coating"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">Ceramic Coating</h3>
+              <p class="mt-2 text-sm text-white/70">High-gloss protection and hydrophobic performance.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">UV + heat resilience</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80"
+              alt="Car body polishing"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">Car Body Polishing</h3>
+              <p class="mt-2 text-sm text-white/70">Remove swirls and restore a mirror finish.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">Paint correction</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1494905998402-395d579af36f?w=600&q=80"
+              alt="Interior detailing"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">Interior Detailing</h3>
+              <p class="mt-2 text-sm text-white/70">Dry cleaning, leather care, and deep sanitization.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">Deep clean</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80"
+              alt="Window tinting"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">Premium Window Tinting</h3>
+              <p class="mt-2 text-sm text-white/70">Heat rejection and UV protection with a clean look.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">Cooler cabin</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="group overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15">
+            <img
+              src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=600&q=80"
+              alt="Vehicle painting"
+              class="h-44 w-full object-cover opacity-90 transition group-hover:opacity-100"
+              loading="lazy"
+            />
+            <div class="p-5">
+              <h3 class="text-lg font-semibold">Vehicle Painting</h3>
+              <p class="mt-2 text-sm text-white/70">Restoration, refinishing, and premium paint work.</p>
+              <div class="mt-4 flex items-center justify-between">
+                <span class="text-xs text-white/60">Color matching</span>
+                <a class="text-sm font-semibold text-borz-gold hover:brightness-110 transition" href="#contact">Get quote →</a>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="mt-10 grid gap-4 rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 md:grid-cols-3">
+          <div>
+            <div class="text-sm font-semibold">Luxury lounge + coffee</div>
+            <div class="mt-1 text-sm text-white/70">Comfortable waiting area upstairs with tea & coffee.</div>
+          </div>
+          <div>
+            <div class="text-sm font-semibold">Premium materials</div>
+            <div class="mt-1 text-sm text-white/70">Protection-first approach, clean installs, and attention to detail.</div>
+          </div>
+          <div>
+            <div class="text-sm font-semibold">Trusted Borz standard</div>
+            <div class="mt-1 text-sm text-white/70">A sister brand within the Borz Car family.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PACKAGES -->
+      <section id="packages" class="relative mx-auto max-w-6xl px-4 py-14">
+        <!-- Section background pattern -->
+        <div class="absolute inset-0 -z-10 opacity-5">
+          <img 
+            src="public/images/optimized/pattern-bg.jpg" 
+            alt="" 
+            class="h-full w-full object-cover"
+            loading="lazy"
+            aria-hidden="true"
+            style="background-repeat: repeat;"
+          />
+        </div>
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Packages</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Choose a package — we'll quote instantly based on your vehicle and condition.
+            </p>
+          </div>
+          <div class="hidden md:block text-sm text-white/60">Prices vary by vehicle • Message us for a fast quote</div>
+        </div>
+
+        <div class="mt-8 grid gap-4 lg:grid-cols-3">
+          <article class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <div class="text-xs tracking-widest text-white/60">ESSENTIAL</div>
+            <h3 class="mt-2 text-xl font-semibold">Premium Detail</h3>
+            <p class="mt-2 text-sm text-white/70">Interior + exterior refresh with finishing touches.</p>
+            <ul class="mt-5 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Deep interior cleaning</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Exterior wash + safe drying</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Interior plastics & trim finish</li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-whatsapp px-5 py-4 text-sm font-semibold text-black hover:brightness-110 transition shadow-soft"
+              href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener"
+            >
+              Quote via WhatsApp
+            </a>
+          </article>
+
+          <article class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft ring-1 ring-borz-gold/25">
+            <div class="flex items-center justify-between">
+              <div class="text-xs tracking-widest text-white/60">MOST POPULAR</div>
+              <div class="rounded-full bg-borz-gold px-3 py-1 text-xs font-semibold text-black">Recommended</div>
+            </div>
+            <h3 class="mt-2 text-xl font-semibold">Paint Enhancement</h3>
+            <p class="mt-2 text-sm text-white/70">Polishing that brings back gloss and clarity.</p>
+            <ul class="mt-5 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Paint decontamination</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Multi-stage polishing</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Finish inspection under workshop lights</li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-telegram px-5 py-4 text-sm font-semibold text-white hover:brightness-110 transition shadow-soft"
+              href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+              target="_blank"
+              rel="noopener"
+            >
+              Book via Telegram
+            </a>
+          </article>
+
+          <article class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <div class="text-xs tracking-widest text-white/60">ULTIMATE</div>
+            <h3 class="mt-2 text-xl font-semibold">PPF + Ceramic</h3>
+            <p class="mt-2 text-sm text-white/70">Long-term protection for high-value vehicles.</p>
+            <ul class="mt-5 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Protection-first consultation</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Precision install & finishing</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Warranty options available</li>
+            </ul>
+            <a
+              class="mt-6 inline-flex w-full items-center justify-center rounded-2xl border border-borz-stroke bg-borz-bg/60 px-5 py-4 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
+              href="https://instagram.com/borz_detailing_uae/?hl=en"
+              target="_blank"
+              rel="noopener"
+            >
+              View protection work (IG)
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <!-- PROCESS -->
+      <section id="process" class="mx-auto max-w-6xl px-4 py-14">
+        <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 md:p-10 shadow-soft">
+          <div class="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Our Process</h2>
+              <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+                Built to produce consistent results — from inspection to delivery.
+              </p>
+            </div>
+            <a
+              class="inline-flex items-center justify-center rounded-2xl bg-borz-gold px-4 py-3 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
+              href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+              target="_blank"
+              rel="noopener"
+            >
+              Start on WhatsApp
+            </a>
+          </div>
+
+          <div class="mt-8 grid gap-4 md:grid-cols-4">
+            <div class="rounded-3xl border border-borz-stroke bg-borz-bg/60 p-6">
+              <div class="text-xs tracking-widest text-white/60">01</div>
+              <div class="mt-2 text-sm font-semibold">Inspect</div>
+              <div class="mt-2 text-sm text-white/70">We check paint, interior, and protection needs.</div>
+            </div>
+            <div class="rounded-3xl border border-borz-stroke bg-borz-bg/60 p-6">
+              <div class="text-xs tracking-widest text-white/60">02</div>
+              <div class="mt-2 text-sm font-semibold">Prepare</div>
+              <div class="mt-2 text-sm text-white/70">Safe wash + decontamination for best results.</div>
+            </div>
+            <div class="rounded-3xl border border-borz-stroke bg-borz-bg/60 p-6">
+              <div class="text-xs tracking-widest text-white/60">03</div>
+              <div class="mt-2 text-sm font-semibold">Perfect</div>
+              <div class="mt-2 text-sm text-white/70">Polish / PPF / ceramic with precision finishing.</div>
+            </div>
+            <div class="rounded-3xl border border-borz-stroke bg-borz-bg/60 p-6">
+              <div class="text-xs tracking-widest text-white/60">04</div>
+              <div class="mt-2 text-sm font-semibold">Deliver</div>
+              <div class="mt-2 text-sm text-white/70">Final inspection under workshop lights, then handover.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REVIEWS - Premium testimonials -->
+      <section id="reviews" class="relative mx-auto max-w-6xl px-4 py-14">
+        <!-- Background texture for reviews section -->
+        <div class="absolute inset-0 -z-10 opacity-20">
+          <img 
+            src="public/images/optimized/testimonials-bg.jpg" 
+            alt="" 
+            class="h-full w-full object-cover"
+            loading="lazy"
+            aria-hidden="true"
+          />
+        </div>
+        <div class="relative flex items-end justify-between gap-6">
+          <div>
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Reviews</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Social proof that matters: quality work, professional staff, and premium materials.
+            </p>
+          </div>
+
+          <div class="hidden md:flex items-center gap-3">
+            <div class="rounded-2xl border border-borz-stroke bg-borz-surface px-4 py-3 text-sm">
+              <div class="font-semibold"><span class="text-borz-gold">4.7★</span> rating</div>
+              <div class="text-xs text-white/60">32+ Google reviews</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 grid gap-4 md:grid-cols-3">
+          <figure class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <div class="mb-4 flex items-center gap-1 text-borz-gold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="text-sm leading-relaxed text-white/80">
+              "A best PPF shop around Dubai… using perfect material and have warranty."
+            </blockquote>
+            <figcaption class="mt-4 text-sm font-semibold">— Raven Chryss Bobadilla</figcaption>
+            <div class="mt-2 text-xs text-white/50">Google Review</div>
+          </figure>
+
+          <figure class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <div class="mb-4 flex items-center gap-1 text-borz-gold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="text-sm leading-relaxed text-white/80">
+              "Team is absolutely amazing… get the job done effectively and at the best quality."
+            </blockquote>
+            <figcaption class="mt-4 text-sm font-semibold">— Zukhra Makhsimova</figcaption>
+            <div class="mt-2 text-xs text-white/50">Google Review</div>
+          </figure>
+
+          <figure class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <div class="mb-4 flex items-center gap-1 text-borz-gold">
+              <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+            </div>
+            <blockquote class="text-sm leading-relaxed text-white/80">
+              "Great guys running this detailing… done 3 cars here so far."
+            </blockquote>
+            <figcaption class="mt-4 text-sm font-semibold">— Tima</figcaption>
+            <div class="mt-2 text-xs text-white/50">Google Review</div>
+          </figure>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mt-10 rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 md:p-10 shadow-soft">
+          <h3 class="text-xl font-semibold">FAQ</h3>
+          <div class="mt-6 grid gap-3 md:grid-cols-2">
+            <details class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-5">
+              <summary class="cursor-pointer flex items-center justify-between gap-4">
+                <span class="text-sm font-semibold">Do you offer warranty on PPF & coating?</span>
+                <span class="text-borz-gold text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-white/70">
+                Yes — warranty options are available depending on the package and materials selected. Message us to confirm coverage.
+              </p>
+            </details>
+
+            <details class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-5">
+              <summary class="cursor-pointer flex items-center justify-between gap-4">
+                <span class="text-sm font-semibold">How long does a full detail take?</span>
+                <span class="text-borz-gold text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-white/70">
+                Timing depends on vehicle size and condition. We'll give an accurate estimate when you send photos on WhatsApp or Telegram.
+              </p>
+            </details>
+
+            <details class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-5">
+              <summary class="cursor-pointer flex items-center justify-between gap-4">
+                <span class="text-sm font-semibold">Can I wait while the work is done?</span>
+                <span class="text-borz-gold text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-white/70">
+                Yes — there's a lounge area upstairs with tea and coffee while you wait.
+              </p>
+            </details>
+
+            <details class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-5">
+              <summary class="cursor-pointer flex items-center justify-between gap-4">
+                <span class="text-sm font-semibold">Do you support English / Arabic / Russian?</span>
+                <span class="text-borz-gold text-lg">+</span>
+              </summary>
+              <p class="mt-3 text-sm text-white/70">
+                Yes — our team can support English, Arabic, and Russian speaking clients.
+              </p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="mx-auto max-w-6xl px-4 py-14 pb-32 md:pb-14">
+        <div class="grid gap-6 lg:grid-cols-2">
+          <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 md:p-10 shadow-soft">
+            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Contact & Location</h2>
+            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
+              Al Quoz Industrial • Dubai — fast booking via WhatsApp/Telegram, plus portfolio on Instagram.
+            </p>
+
+            <div class="mt-6 grid gap-3">
+              <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                <div class="text-xs tracking-widest text-white/60">ADDRESS</div>
+                <div class="mt-1 font-semibold">Al Quoz Ind. Third • Al Quoz • Dubai</div>
+                <a
+                  class="mt-2 inline-flex items-center gap-2 text-sm text-white/70 hover:text-white transition"
+                  href="https://www.google.com/maps?q=Al%20Quoz%20Industrial%20Area%203%20Dubai"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Get directions <span aria-hidden="true">→</span>
+                </a>
+              </div>
+
+              <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                <div class="text-xs tracking-widest text-white/60">HOURS</div>
+                <div class="mt-1 font-semibold">Open daily • Closes 8 PM</div>
+              </div>
+
+              <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-4">
+                <div class="text-xs tracking-widest text-white/60">SOCIAL</div>
+                <div class="mt-1 font-semibold">@borz_detailing_uae</div>
+                <div class="mt-1 text-sm text-white/70">Your portfolio is your proof — send clients here.</div>
+              </div>
+            </div>
+
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <a
+                class="inline-flex items-center justify-center rounded-2xl bg-whatsapp px-5 py-4 text-sm font-semibold text-black hover:brightness-110 transition shadow-soft"
+                href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+                target="_blank"
+                rel="noopener"
+              >
+                WhatsApp
+              </a>
+
+              <a
+                class="inline-flex items-center justify-center rounded-2xl bg-telegram px-5 py-4 text-sm font-semibold text-white hover:brightness-110 transition shadow-soft"
+                href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+                target="_blank"
+                rel="noopener"
+              >
+                Telegram
+              </a>
+
+              <a
+                class="sm:col-span-2 inline-flex items-center justify-center rounded-2xl border border-borz-stroke bg-borz-surface px-5 py-4 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
+                href="https://instagram.com/borz_detailing_uae/?hl=en"
+                target="_blank"
+                rel="noopener"
+              >
+                Contact on Instagram
+              </a>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface/60 shadow-soft">
+            <iframe
+              title="Borz Detailing Map"
+              class="h-[470px] w-full"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Al%20Quoz%20Industrial%20Area%203%20Dubai&output=embed"
+            ></iframe>
+
+            <div class="border-t border-borz-stroke p-6">
+              <div class="flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <div class="text-sm font-semibold">Borz Detailing Car Polish Services L.L.C</div>
+                  <div class="mt-1 text-sm text-white/65">PPF • Ceramic • Polishing • Tinting • Painting</div>
+                </div>
+                <a
+                  class="inline-flex items-center justify-center rounded-xl bg-borz-gold px-4 py-2 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
+                  href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  Get a Quote
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Floating social button (Instagram) - Mobile only -->
+    <a
+      href="https://instagram.com/borz_detailing_uae/?hl=en"
+      target="_blank"
+      rel="noopener"
+      class="fixed bottom-[92px] left-4 z-50 md:hidden inline-flex h-12 w-12 items-center justify-center rounded-full border border-borz-stroke bg-borz-surface shadow-soft hover:border-white/20 transition"
+      aria-label="Open Instagram"
+      title="Instagram"
+    >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="opacity-90">
+        <path
+          d="M7.5 2h9A5.5 5.5 0 0 1 22 7.5v9A5.5 5.5 0 0 1 16.5 22h-9A5.5 5.5 0 0 1 2 16.5v-9A5.5 5.5 0 0 1 7.5 2Z"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <path
+          d="M12 16.2a4.2 4.2 0 1 0 0-8.4 4.2 4.2 0 0 0 0 8.4Z"
+          stroke="currentColor"
+          stroke-width="1.6"
+        />
+        <path d="M17.8 6.4h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" />
+      </svg>
+    </a>
+
+    <!-- Desktop floating CTAs -->
+    <div class="hidden md:block fixed bottom-6 right-6 z-50">
+      <div class="flex flex-col gap-3">
+        <a
+          class="inline-flex items-center justify-center rounded-2xl bg-whatsapp px-4 py-3 text-sm font-semibold text-black shadow-soft hover:brightness-110 transition"
+          href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+          target="_blank"
+          rel="noopener"
+        >
+          WhatsApp
+        </a>
+        <a
+          class="inline-flex items-center justify-center rounded-2xl bg-telegram px-4 py-3 text-sm font-semibold text-white shadow-soft hover:brightness-110 transition"
+          href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+          target="_blank"
+          rel="noopener"
+        >
+          Telegram
+        </a>
+        <a
+          class="inline-flex items-center justify-center rounded-2xl border border-borz-stroke bg-borz-surface px-4 py-3 text-sm font-semibold text-white/90 shadow-soft hover:text-white hover:border-white/20 transition"
+          href="https://instagram.com/borz_detailing_uae/?hl=en"
+          target="_blank"
+          rel="noopener"
+        >
+          Instagram
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile sticky bottom bar - 50/50 split -->
+    <div class="md:hidden fixed inset-x-0 bottom-0 z-50 border-t border-borz-stroke bg-borz-bg/85 backdrop-blur">
+      <div class="mx-auto max-w-6xl px-3 py-3">
+        <div class="grid grid-cols-2 gap-3">
+          <a
+            class="inline-flex items-center justify-center rounded-2xl bg-whatsapp px-4 py-4 text-sm font-semibold text-black shadow-soft hover:brightness-110 transition"
+            href="https://api.whatsapp.com/send/?phone=971563299615&text=ID%3A+Y4kFdexpp8F&type=phone_number&app_absent=0"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+          <a
+            class="inline-flex items-center justify-center rounded-2xl bg-telegram px-4 py-4 text-sm font-semibold text-white shadow-soft hover:brightness-110 transition"
+            href="https://t.me/BorzCarRental_Dubai_bot?start=VisitorUid_74d13fab-8439-454c-8344-998a61acef95"
+            target="_blank"
+            rel="noopener"
+          >
+            Telegram
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-borz-stroke/70">
+      <div class="mx-auto max-w-6xl px-4 py-10">
+        <div class="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+          <div class="text-sm text-white/60">
+            © <span id="year"></span> Borz Detailing. All rights reserved.
+          </div>
+          <div class="flex flex-wrap items-center gap-3">
+            <a class="text-sm text-white/70 hover:text-white transition" href="#services">Services</a>
+            <span class="text-white/20">•</span>
+            <a class="text-sm text-white/70 hover:text-white transition" href="#gallery">Gallery</a>
+            <span class="text-white/20">•</span>
+            <a class="text-sm text-white/70 hover:text-white transition" href="#packages">Packages</a>
+            <span class="text-white/20">•</span>
+            <a class="text-sm text-white/70 hover:text-white transition" href="#contact">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById("menuBtn");
+        const panel = document.getElementById("mobileMenu");
+
+        btn?.addEventListener("click", () => {
+          const isOpen = !panel.classList.contains("hidden");
+          panel.classList.toggle("hidden");
+          btn.setAttribute("aria-expanded", String(!isOpen));
+        });
+
+        // Optional: expose quick-link constants for easy editing in DevTools
+        window.BORZ_LINKS = BORZ_LINKS;
+      </script>
+    </footer>
+
+    <!-- Image Lightbox -->
+    <div id="lightbox" class="lightbox-overlay" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Image lightbox">
+      <button onclick="closeLightbox()" class="absolute top-4 right-4 z-10 rounded-full bg-borz-surface/90 p-3 text-white hover:bg-borz-surface transition" aria-label="Close lightbox">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+      <img id="lightbox-image" class="lightbox-image" src="" alt="" onclick="event.stopPropagation()" />
+    </div>
+
+    <script>
+      // Lightbox functionality
+      function openLightbox(imageSrc, imageAlt) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImage = document.getElementById("lightbox-image");
+        lightboxImage.src = imageSrc;
+        lightboxImage.alt = imageAlt;
+        lightbox.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        lightbox.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Close lightbox on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          closeLightbox();
+        }
+      });
+
+      // Video play functionality
+      function playVideo() {
+        const video = document.getElementById("mainVideo");
+        const overlay = document.getElementById("videoOverlay");
+        if (video && overlay) {
+          video.play();
+          overlay.style.display = "none";
+        }
+      }
+
+      // Video play functionality
+      function playVideo() {
+        const video = document.getElementById("mainVideo");
+        const overlay = document.getElementById("videoOverlay");
+        if (video && overlay) {
+          video.play();
+          overlay.style.display = "none";
+        }
+      }
+
+      // Hide overlay when video starts playing
+      const mainVideo = document.getElementById("mainVideo");
+      if (mainVideo) {
+        mainVideo.addEventListener("play", () => {
+          const overlay = document.getElementById("videoOverlay");
+          if (overlay) overlay.style.display = "none";
+        });
+        mainVideo.addEventListener("pause", () => {
+          const overlay = document.getElementById("videoOverlay");
+          if (overlay) overlay.style.display = "flex";
+        });
+      }
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("animate-fade-in");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      // Observe sections for animation
+      document.querySelectorAll("section").forEach((section) => {
+        observer.observe(section);
+      });
+    </script>
+  </body>
+</html>
+
