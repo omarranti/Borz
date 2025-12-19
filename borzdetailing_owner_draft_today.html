@@ -22,20 +22,17 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://borzdetailing.com" />
-    <meta property="og:image" content="/public/images/Website landing with logo.png" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_AE" />
     <meta name="theme-color" content="#0D0D0D" />
     
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/public/images/optimized/favicon.png" />
-    
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz" />
     <meta name="twitter:description" content="Premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai." />
-    <meta name="twitter:image" content="/public/images/Website landing with logo.png" />
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -234,21 +231,11 @@
       <div class="mx-auto max-w-6xl px-4">
         <div class="flex h-16 items-center justify-between">
           <a href="#top" class="flex items-center gap-3">
-            <!-- Desktop Logo -->
-            <img 
-              src="/public/images/optimized/Main Logo.jpg" 
-              alt="Borz Detailing Logo" 
-              class="hidden sm:block h-10 w-auto object-contain"
-              loading="eager"
-            />
-            <!-- Mobile Logo -->
-            <img 
-              src="/public/images/optimized/mOBI.jpg" 
-              alt="Borz Detailing Logo" 
-              class="sm:hidden h-10 w-auto object-contain"
-              loading="eager"
-            />
-            <div class="hidden md:block leading-tight">
+            <div class="relative grid h-9 w-9 place-items-center rounded-xl border border-borz-stroke bg-borz-surface shadow-soft">
+              <span class="text-[15px] font-semibold tracking-widest">B</span>
+              <span class="absolute -bottom-[5px] -right-[5px] h-3.5 w-3.5 rounded-full border border-borz-stroke bg-borz-gold"></span>
+            </div>
+            <div class="leading-tight">
               <div class="text-sm font-semibold tracking-[0.28em]">BORZ</div>
               <div class="text-xs text-white/70 tracking-[0.22em]">DETAILING</div>
             </div>
@@ -344,24 +331,10 @@
         <div class="absolute inset-0 grain"></div>
 
         <div class="absolute inset-0 -z-10">
-          <!-- Video Background (uncomment and add your video path) -->
-          <!--
-          <video
-            autoplay
-            muted
-            loop
-            playsinline
-            class="h-full w-full object-cover opacity-35"
-            poster="/public/images/optimized/hero-bg.jpg"
-          >
-            <source src="/borz-detailing-video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video>
-          -->
-          
-          <!-- Hero Background Image -->
           <img
-            src="/public/images/optimized/hero-bg.jpg"
+            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
+            srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80 400w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80 800w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80 1200w"
+            sizes="100vw"
             alt="Borz Detailing workshop"
             class="h-full w-full object-cover opacity-35"
             loading="eager"
@@ -490,43 +463,6 @@
               </div>
 
               <div class="pointer-events-none absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-tr from-borz-gold/22 via-transparent to-telegram/12 blur-2xl"></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIDEO SECTION - Optional showcase video -->
-      <section id="video" class="mx-auto max-w-6xl px-4 py-14 md:py-18">
-        <div class="flex items-end justify-between gap-6">
-          <div>
-            <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">See Us in Action</h2>
-            <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
-              Watch our team deliver premium detailing and protection services.
-            </p>
-          </div>
-        </div>
-
-        <div class="mt-8 overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft">
-          <!-- Video Player -->
-          <div class="relative aspect-video bg-borz-bg">
-            <video
-              id="mainVideo"
-              class="h-full w-full object-cover"
-              controls
-              preload="metadata"
-              poster="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80"
-            >
-              <source src="/borz-detailing-video.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-            
-            <!-- Custom Play Button Overlay (optional) -->
-            <div id="videoOverlay" class="absolute inset-0 flex items-center justify-center bg-borz-bg/40 cursor-pointer group" onclick="playVideo()">
-              <div class="rounded-full bg-borz-gold/90 p-6 group-hover:bg-borz-gold transition">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" class="text-black ml-1">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
             </div>
           </div>
         </div>
@@ -765,17 +701,7 @@
       </section>
 
       <!-- SERVICES -->
-      <section id="services" class="relative mx-auto max-w-6xl px-4 py-14 md:py-18">
-        <!-- Section background texture -->
-        <div class="absolute inset-0 -z-10 opacity-10">
-          <img 
-            src="/public/images/optimized/section-texture.jpg" 
-            alt="" 
-            class="h-full w-full object-cover"
-            loading="lazy"
-            aria-hidden="true"
-          />
-        </div>
+      <section id="services" class="mx-auto max-w-6xl px-4 py-14 md:py-18">
         <div class="flex items-end justify-between gap-6">
           <div>
             <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Services</h2>
@@ -913,18 +839,7 @@
       </section>
 
       <!-- PACKAGES -->
-      <section id="packages" class="relative mx-auto max-w-6xl px-4 py-14">
-        <!-- Section background pattern -->
-        <div class="absolute inset-0 -z-10 opacity-5">
-          <img 
-            src="/public/images/optimized/pattern-bg.jpg" 
-            alt="" 
-            class="h-full w-full object-cover"
-            loading="lazy"
-            aria-hidden="true"
-            style="background-repeat: repeat;"
-          />
-        </div>
+      <section id="packages" class="mx-auto max-w-6xl px-4 py-14">
         <div class="flex items-end justify-between gap-6">
           <div>
             <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Packages</h2>
@@ -1044,18 +959,8 @@
       </section>
 
       <!-- REVIEWS - Premium testimonials -->
-      <section id="reviews" class="relative mx-auto max-w-6xl px-4 py-14">
-        <!-- Background texture for reviews section -->
-        <div class="absolute inset-0 -z-10 opacity-20">
-          <img 
-            src="/public/images/optimized/testimonials-bg.jpg" 
-            alt="" 
-            class="h-full w-full object-cover"
-            loading="lazy"
-            aria-hidden="true"
-          />
-        </div>
-        <div class="relative flex items-end justify-between gap-6">
+      <section id="reviews" class="mx-auto max-w-6xl px-4 py-14">
+        <div class="flex items-end justify-between gap-6">
           <div>
             <h2 class="text-2xl font-semibold tracking-tight md:text-3xl">Reviews</h2>
             <p class="mt-2 max-w-prose text-sm text-white/70 md:text-base">
@@ -1396,39 +1301,6 @@
           closeLightbox();
         }
       });
-
-      // Video play functionality
-      function playVideo() {
-        const video = document.getElementById("mainVideo");
-        const overlay = document.getElementById("videoOverlay");
-        if (video && overlay) {
-          video.play();
-          overlay.style.display = "none";
-        }
-      }
-
-      // Video play functionality
-      function playVideo() {
-        const video = document.getElementById("mainVideo");
-        const overlay = document.getElementById("videoOverlay");
-        if (video && overlay) {
-          video.play();
-          overlay.style.display = "none";
-        }
-      }
-
-      // Hide overlay when video starts playing
-      const mainVideo = document.getElementById("mainVideo");
-      if (mainVideo) {
-        mainVideo.addEventListener("play", () => {
-          const overlay = document.getElementById("videoOverlay");
-          if (overlay) overlay.style.display = "none";
-        });
-        mainVideo.addEventListener("pause", () => {
-          const overlay = document.getElementById("videoOverlay");
-          if (overlay) overlay.style.display = "flex";
-        });
-      }
 
       // Intersection Observer for fade-in animations
       const observerOptions = {
