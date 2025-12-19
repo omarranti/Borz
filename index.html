@@ -1630,6 +1630,131 @@
       document.querySelectorAll("section").forEach((section) => {
         observer.observe(section);
       });
+
+      // Traction Metrics Tracking
+      const metrics = {
+        pageViews: parseInt(localStorage.getItem('borz_pageViews') || '0') + 1,
+        timeOnSite: 0,
+        sectionsViewed: new Set(),
+        clicks: {
+          whatsapp: 0,
+          telegram: 0,
+          instagram: 0,
+          packages: 0
+        },
+        emailCaptured: false
+      };
+
+      // Save metrics to localStorage
+      localStorage.setItem('borz_pageViews', metrics.pageViews.toString());
+      const savedMetrics = JSON.parse(localStorage.getItem('borz_metrics') || '{}');
+      if (savedMetrics.clicks) {
+        metrics.clicks = { ...metrics.clicks, ...savedMetrics.clicks };
+      }
+      localStorage.setItem('borz_metrics', JSON.stringify(metrics));
+
+      // Track time on site
+      const startTime = Date.now();
+      setInterval(() => {
+        metrics.timeOnSite = Math.floor((Date.now() - startTime) / 1000);
+        localStorage.setItem('borz_metrics', JSON.stringify(metrics));
+      }, 1000);
+
+      // Track section views
+      document.querySelectorAll("section[id]").forEach((section) => {
+        const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              metrics.sectionsViewed.add(entry.target.id);
+              const updated = JSON.parse(JSON.stringify(metrics));
+              updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+              localStorage.setItem('borz_metrics', JSON.stringify(updated));
+            }
+          });
+        }, { threshold: 0.5 });
+        sectionObserver.observe(section);
+      });
+
+      // Track event function
+      window.trackEvent = function(action, location) {
+        if (metrics.clicks[action] !== undefined) {
+          metrics.clicks[action]++;
+        }
+        const updated = JSON.parse(JSON.stringify(metrics));
+        updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+        localStorage.setItem('borz_metrics', JSON.stringify(updated));
+        console.log('Event tracked:', action, location);
+      };
+
+      // Email Capture Popup (appears after 1 minute)
+      let emailPopupShown = localStorage.getItem('borz_emailPopupShown') === 'true';
+      let timeOnPage = 0;
+      
+      const emailPopupTimer = setInterval(() => {
+        timeOnPage++;
+        if (timeOnPage >= 60 && !emailPopupShown) {
+          showEmailPopup();
+          clearInterval(emailPopupTimer);
+        }
+      }, 1000);
+
+      window.showEmailPopup = function() {
+        const popup = document.getElementById('emailPopup');
+        if (popup) {
+          popup.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          emailPopupShown = true;
+          localStorage.setItem('borz_emailPopupShown', 'true');
+        }
+      };
+
+      window.closeEmailPopup = function() {
+        const popup = document.getElementById('emailPopup');
+        if (popup) {
+          popup.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      };
+
+      window.submitEmail = function(e) {
+        e.preventDefault();
+        const email = document.getElementById('emailInput').value;
+        if (email && email.includes('@')) {
+          metrics.emailCaptured = true;
+          localStorage.setItem('borz_email', email);
+          const updated = JSON.parse(JSON.stringify(metrics));
+          updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+          localStorage.setItem('borz_metrics', JSON.stringify(updated));
+          
+          console.log('Email captured:', email);
+          
+          const form = document.getElementById('emailForm');
+          if (form) {
+            form.innerHTML = `
+              <div class="text-center py-4">
+                <div class="text-borz-gold text-2xl mb-2">✓</div>
+                <p class="text-sm font-semibold">Thank you! We'll be in touch soon.</p>
+              </div>
+            `;
+          }
+          
+          setTimeout(() => {
+            closeEmailPopup();
+          }, 2000);
+        }
+      };
+
+      // Close popup on escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          closeEmailPopup();
+        }
+      });
+
+      // Expose metrics for viewing (in console: localStorage.getItem('borz_metrics'))
+      window.getBorzMetrics = function() {
+        return JSON.parse(localStorage.getItem('borz_metrics') || '{}');
+      };
     </script>
   </body>
 </html>
