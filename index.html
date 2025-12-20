@@ -29,7 +29,7 @@
     <meta name="theme-color" content="#0D0D0D" />
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/public/images/optimized/favicon.png" />
+    <link rel="icon" type="image/png" href="public/images/optimized/favicon.png" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -294,14 +294,14 @@
           <a href="#top" class="flex items-center gap-3">
             <!-- Desktop Logo -->
             <img 
-              src="/public/images/optimized/Main Logo.jpg" 
+              src="public/images/optimized/Main Logo.jpg" 
               alt="Borz Detailing Logo" 
               class="hidden sm:block h-10 w-auto object-contain"
               loading="eager"
             />
             <!-- Mobile Logo -->
             <img 
-              src="/public/images/optimized/mOBI.jpg" 
+              src="public/images/optimized/mOBI.jpg" 
               alt="Borz Detailing Logo" 
               class="sm:hidden h-10 w-auto object-contain"
               loading="eager"
@@ -419,7 +419,7 @@
           
           <!-- Hero Background Image -->
           <img
-            src="/public/images/optimized/hero-bg.jpg"
+            src="public/images/optimized/hero-bg.jpg"
             alt="Borz Detailing workshop"
             class="h-full w-full object-cover opacity-35"
             loading="eager"
@@ -830,7 +830,7 @@
         <!-- Section background texture -->
         <div class="absolute inset-0 -z-10 opacity-10">
           <img 
-            src="/public/images/optimized/section-texture.jpg" 
+            src="public/images/optimized/section-texture.jpg" 
             alt="" 
             class="h-full w-full object-cover"
             loading="lazy"
@@ -978,7 +978,7 @@
         <!-- Section background pattern -->
         <div class="absolute inset-0 -z-10 opacity-5">
           <img 
-            src="/public/images/optimized/pattern-bg.jpg" 
+            src="public/images/optimized/pattern-bg.jpg" 
             alt="" 
             class="h-full w-full object-cover"
             loading="lazy"
@@ -1190,7 +1190,7 @@
         <!-- Background texture for reviews section -->
         <div class="absolute inset-0 -z-10 opacity-20">
           <img 
-            src="/public/images/optimized/testimonials-bg.jpg" 
+            src="public/images/optimized/testimonials-bg.jpg" 
             alt="" 
             class="h-full w-full object-cover"
             loading="lazy"
@@ -1631,9 +1631,9 @@
         observer.observe(section);
       });
 
-      // Traction Metrics Tracking
-      const metrics = {
-        pageViews: parseInt(localStorage.getItem('borz_pageViews') || '0') + 1,
+      // Traction Metrics Tracking with error handling
+      let metrics = {
+        pageViews: 0,
         timeOnSite: 0,
         sectionsViewed: new Set(),
         clicks: {
@@ -1645,58 +1645,149 @@
         emailCaptured: false
       };
 
-      // Save metrics to localStorage
-      localStorage.setItem('borz_pageViews', metrics.pageViews.toString());
-      const savedMetrics = JSON.parse(localStorage.getItem('borz_metrics') || '{}');
-      if (savedMetrics.clicks) {
-        metrics.clicks = { ...metrics.clicks, ...savedMetrics.clicks };
+      // Safe localStorage helper functions
+      function safeGetItem(key, defaultValue = null) {
+        try {
+          const item = localStorage.getItem(key);
+          return item !== null ? item : defaultValue;
+        } catch (e) {
+          console.warn('localStorage.getItem failed:', e);
+          return defaultValue;
+        }
       }
-      localStorage.setItem('borz_metrics', JSON.stringify(metrics));
 
-      // Track time on site
+      function safeSetItem(key, value) {
+        try {
+          localStorage.setItem(key, value);
+          return true;
+        } catch (e) {
+          console.warn('localStorage.setItem failed:', e);
+          return false;
+        }
+      }
+
+      function safeParseJSON(jsonString, defaultValue = {}) {
+        try {
+          return JSON.parse(jsonString);
+        } catch (e) {
+          console.warn('JSON.parse failed:', e);
+          return defaultValue;
+        }
+      }
+
+      // Initialize metrics with safe localStorage access
+      try {
+        const pageViewsStr = safeGetItem('borz_pageViews', '0');
+        metrics.pageViews = parseInt(pageViewsStr, 10) + 1;
+        if (isNaN(metrics.pageViews)) metrics.pageViews = 1;
+      } catch (e) {
+        metrics.pageViews = 1;
+      }
+
+      // Load saved metrics
+      try {
+        const savedMetricsStr = safeGetItem('borz_metrics', '{}');
+        const savedMetrics = safeParseJSON(savedMetricsStr, {});
+        if (savedMetrics.clicks) {
+          metrics.clicks = { ...metrics.clicks, ...savedMetrics.clicks };
+        }
+        if (savedMetrics.sectionsViewed && Array.isArray(savedMetrics.sectionsViewed)) {
+          metrics.sectionsViewed = new Set(savedMetrics.sectionsViewed);
+        }
+      } catch (e) {
+        console.warn('Failed to load saved metrics:', e);
+      }
+
+      // Save metrics to localStorage
+      safeSetItem('borz_pageViews', metrics.pageViews.toString());
+
+      // Track time on site with safe localStorage
       const startTime = Date.now();
-      setInterval(() => {
-        metrics.timeOnSite = Math.floor((Date.now() - startTime) / 1000);
-        localStorage.setItem('borz_metrics', JSON.stringify(metrics));
+      const timeTrackerInterval = setInterval(() => {
+        try {
+          metrics.timeOnSite = Math.floor((Date.now() - startTime) / 1000);
+          const updated = JSON.parse(JSON.stringify(metrics));
+          updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+          safeSetItem('borz_metrics', JSON.stringify(updated));
+        } catch (e) {
+          console.warn('Failed to update time tracking:', e);
+        }
       }, 1000);
 
-      // Track section views
+      // Track section views with safe localStorage
       document.querySelectorAll("section[id]").forEach((section) => {
         const sectionObserver = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              metrics.sectionsViewed.add(entry.target.id);
-              const updated = JSON.parse(JSON.stringify(metrics));
-              updated.sectionsViewed = Array.from(metrics.sectionsViewed);
-              localStorage.setItem('borz_metrics', JSON.stringify(updated));
+              try {
+                metrics.sectionsViewed.add(entry.target.id);
+                const updated = JSON.parse(JSON.stringify(metrics));
+                updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+                safeSetItem('borz_metrics', JSON.stringify(updated));
+              } catch (e) {
+                console.warn('Failed to track section view:', e);
+              }
             }
           });
         }, { threshold: 0.5 });
         sectionObserver.observe(section);
       });
 
-      // Track event function
+      // Track event function with safe localStorage
       window.trackEvent = function(action, location) {
-        if (metrics.clicks[action] !== undefined) {
-          metrics.clicks[action]++;
+        try {
+          if (metrics.clicks[action] !== undefined) {
+            metrics.clicks[action]++;
+          }
+          const updated = JSON.parse(JSON.stringify(metrics));
+          updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+          safeSetItem('borz_metrics', JSON.stringify(updated));
+          console.log('Event tracked:', action, location);
+        } catch (e) {
+          console.warn('Failed to track event:', e);
         }
-        const updated = JSON.parse(JSON.stringify(metrics));
-        updated.sectionsViewed = Array.from(metrics.sectionsViewed);
-        localStorage.setItem('borz_metrics', JSON.stringify(updated));
-        console.log('Event tracked:', action, location);
       };
 
-      // Email Capture Popup (appears after 1 minute)
-      let emailPopupShown = localStorage.getItem('borz_emailPopupShown') === 'true';
+      // Email Capture Popup (appears after 1 minute) with proper cleanup
+      let emailPopupShown = false;
       let timeOnPage = 0;
-      
-      const emailPopupTimer = setInterval(() => {
-        timeOnPage++;
-        if (timeOnPage >= 60 && !emailPopupShown) {
-          showEmailPopup();
-          clearInterval(emailPopupTimer);
-        }
-      }, 1000);
+      let emailPopupTimer = null;
+
+      // Check if popup was already shown
+      try {
+        emailPopupShown = safeGetItem('borz_emailPopupShown', 'false') === 'true';
+      } catch (e) {
+        emailPopupShown = false;
+      }
+
+      // Only start timer if popup hasn't been shown
+      if (!emailPopupShown) {
+        emailPopupTimer = setInterval(() => {
+          timeOnPage++;
+          // Check if popup was shown elsewhere (e.g., user interaction)
+          try {
+            const currentState = safeGetItem('borz_emailPopupShown', 'false') === 'true';
+            if (currentState) {
+              emailPopupShown = true;
+              if (emailPopupTimer) {
+                clearInterval(emailPopupTimer);
+                emailPopupTimer = null;
+              }
+              return;
+            }
+          } catch (e) {
+            // Continue if check fails
+          }
+
+          if (timeOnPage >= 60 && !emailPopupShown) {
+            showEmailPopup();
+            if (emailPopupTimer) {
+              clearInterval(emailPopupTimer);
+              emailPopupTimer = null;
+            }
+          }
+        }, 1000);
+      }
 
       window.showEmailPopup = function() {
         const popup = document.getElementById('emailPopup');
@@ -1704,7 +1795,12 @@
           popup.classList.add('active');
           document.body.style.overflow = 'hidden';
           emailPopupShown = true;
-          localStorage.setItem('borz_emailPopupShown', 'true');
+          safeSetItem('borz_emailPopupShown', 'true');
+          // Clear timer if still running
+          if (emailPopupTimer) {
+            clearInterval(emailPopupTimer);
+            emailPopupTimer = null;
+          }
         }
       };
 
@@ -1720,27 +1816,33 @@
         e.preventDefault();
         const email = document.getElementById('emailInput').value;
         if (email && email.includes('@')) {
-          metrics.emailCaptured = true;
-          localStorage.setItem('borz_email', email);
-          const updated = JSON.parse(JSON.stringify(metrics));
-          updated.sectionsViewed = Array.from(metrics.sectionsViewed);
-          localStorage.setItem('borz_metrics', JSON.stringify(updated));
-          
-          console.log('Email captured:', email);
-          
-          const form = document.getElementById('emailForm');
-          if (form) {
-            form.innerHTML = `
-              <div class="text-center py-4">
-                <div class="text-borz-gold text-2xl mb-2">✓</div>
-                <p class="text-sm font-semibold">Thank you! We'll be in touch soon.</p>
-              </div>
-            `;
-          }
-          
-          setTimeout(() => {
+          try {
+            metrics.emailCaptured = true;
+            safeSetItem('borz_email', email);
+            const updated = JSON.parse(JSON.stringify(metrics));
+            updated.sectionsViewed = Array.from(metrics.sectionsViewed);
+            safeSetItem('borz_metrics', JSON.stringify(updated));
+            
+            console.log('Email captured:', email);
+            
+            const form = document.getElementById('emailForm');
+            if (form) {
+              form.innerHTML = `
+                <div class="text-center py-4">
+                  <div class="text-borz-gold text-2xl mb-2">✓</div>
+                  <p class="text-sm font-semibold">Thank you! We'll be in touch soon.</p>
+                </div>
+              `;
+            }
+            
+            setTimeout(() => {
+              closeEmailPopup();
+            }, 2000);
+          } catch (e) {
+            console.warn('Failed to save email:', e);
+            alert('Thank you! We received your email.');
             closeEmailPopup();
-          }, 2000);
+          }
         }
       };
 
@@ -1751,10 +1853,26 @@
         }
       });
 
-      // Expose metrics for viewing (in console: localStorage.getItem('borz_metrics'))
+      // Expose metrics for viewing (in console: getBorzMetrics())
       window.getBorzMetrics = function() {
-        return JSON.parse(localStorage.getItem('borz_metrics') || '{}');
+        try {
+          const metricsStr = safeGetItem('borz_metrics', '{}');
+          return safeParseJSON(metricsStr, {});
+        } catch (e) {
+          console.warn('Failed to get metrics:', e);
+          return {};
+        }
       };
+
+      // Cleanup on page unload
+      window.addEventListener('beforeunload', () => {
+        if (emailPopupTimer) {
+          clearInterval(emailPopupTimer);
+        }
+        if (timeTrackerInterval) {
+          clearInterval(timeTrackerInterval);
+        }
+      });
     </script>
   </body>
 </html>
