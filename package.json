@@ -8,7 +8,8 @@
     "test:seo": "node scripts/validate-seo.js",
     "test:links": "node scripts/check-links.js",
     "test:noindex": "node scripts/check-noindex.js",
-    "test:all": "npm run test:seo && npm run test:links && npm run test:noindex",
+    "test:crawlability": "node scripts/verify-crawlability.js",
+    "test:all": "npm run test:seo && npm run test:links && npm run test:noindex && npm run test:crawlability",
     "lighthouse": "lhci autorun",
     "serve": "python3 -m http.server 8000"
   },
