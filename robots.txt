@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /download.html
+Disallow: /*.zip$
+
+Sitemap: https://borzdetailing.com/sitemap.xml
+

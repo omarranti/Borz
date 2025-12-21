@@ -1,38 +1,153 @@
 <!doctype html>
-<html lang="en" class="scroll-smooth">
+<html lang="en-AE" class="scroll-smooth" itemscope itemtype="https://schema.org/WebPage">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz</title>
+    <!-- SEO Metadata System -->
+    <script>
+      // SEO Metadata Configuration - Single Page Application Pattern
+      // This system can be extended for multi-page sites by detecting route/URL
+      const SEO_CONFIG = {
+        baseUrl: 'https://borzdetailing.com',
+        siteName: 'Borz Detailing',
+        defaultImage: 'https://borzdetailing.com/og-image.jpg', // Replace with actual image
+        locale: 'en_AE',
+        // Route-specific metadata (extend this for multi-page sites)
+        routes: {
+          '/': {
+            title: 'Borz Detailing — Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai',
+            description: 'Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews. Book instantly via WhatsApp or Telegram.',
+            keywords: 'car detailing Dubai, PPF wrapping Dubai, ceramic coating Dubai, car polishing Al Quoz, window tinting Dubai, luxury car care, paint protection film Dubai, vehicle painting Dubai',
+            h1: 'The Ultimate Care for Your Supercar',
+            ogType: 'website',
+            canonical: 'https://borzdetailing.com'
+          }
+          // Add more routes here for multi-page expansion:
+          // '/services': { title: '...', description: '...', h1: '...' },
+          // '/gallery': { title: '...', description: '...', h1: '...' },
+        }
+      };
+
+      // Get current route (for single-page, defaults to '/')
+      function getCurrentRoute() {
+        const path = window.location.pathname;
+        return path === '/' || path === '' || path === '/index.html' ? '/' : path;
+      }
+
+      // Get metadata for current route
+      function getMetadata() {
+        const route = getCurrentRoute();
+        return SEO_CONFIG.routes[route] || SEO_CONFIG.routes['/']; // Fallback to home
+      }
+
+      // Apply metadata to document
+      function applyMetadata() {
+        const meta = getMetadata();
+        const config = SEO_CONFIG;
+
+        // Update title
+        document.title = meta.title;
+
+        // Update or create meta tags
+        function setMetaTag(name, content, isProperty = false) {
+          const attr = isProperty ? 'property' : 'name';
+          let tag = document.querySelector(`meta[${attr}="${name}"]`);
+          if (!tag) {
+            tag = document.createElement('meta');
+            tag.setAttribute(attr, name);
+            document.head.appendChild(tag);
+          }
+          tag.setAttribute('content', content);
+        }
+
+        // Basic meta tags
+        setMetaTag('description', meta.description);
+        setMetaTag('keywords', meta.keywords);
+        setMetaTag('author', config.siteName);
+        setMetaTag('robots', 'index, follow');
+        setMetaTag('theme-color', '#0D0D0D');
+
+        // Canonical URL
+        let canonical = document.querySelector('link[rel="canonical"]');
+        if (!canonical) {
+          canonical = document.createElement('link');
+          canonical.setAttribute('rel', 'canonical');
+          document.head.appendChild(canonical);
+        }
+        canonical.setAttribute('href', meta.canonical || config.baseUrl + route);
+
+        // Open Graph
+        setMetaTag('og:title', meta.title, true);
+        setMetaTag('og:description', meta.description, true);
+        setMetaTag('og:type', meta.ogType || 'website', true);
+        setMetaTag('og:url', meta.canonical || config.baseUrl + route, true);
+        setMetaTag('og:image', meta.image || config.defaultImage, true);
+        setMetaTag('og:image:width', '1200', true);
+        setMetaTag('og:image:height', '630', true);
+        setMetaTag('og:locale', config.locale, true);
+        setMetaTag('og:site_name', config.siteName, true);
+
+        // Twitter Card
+        setMetaTag('twitter:card', 'summary_large_image');
+        setMetaTag('twitter:title', meta.title);
+        setMetaTag('twitter:description', meta.description);
+        setMetaTag('twitter:image', meta.image || config.defaultImage);
+
+        // Verify H1 usage (should be exactly one)
+        const h1Tags = document.querySelectorAll('h1');
+        if (h1Tags.length === 0) {
+          console.warn('SEO Warning: No H1 tag found on page');
+        } else if (h1Tags.length > 1) {
+          console.warn(`SEO Warning: Multiple H1 tags found (${h1Tags.length}). Should be exactly one.`);
+        } else {
+          // Verify H1 content matches expected
+          const h1Text = h1Tags[0].textContent.trim();
+          if (meta.h1 && !h1Text.includes(meta.h1.split(' ')[0])) {
+            console.warn(`SEO Warning: H1 content may not match expected. Found: "${h1Text}", Expected contains: "${meta.h1}"`);
+          }
+        }
+      }
+
+      // Apply metadata on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', applyMetadata);
+      } else {
+        applyMetadata();
+      }
+    </script>
+
+    <!-- Initial meta tags (will be updated by script above) -->
+    <title>Borz Detailing — Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai</title>
     <meta
       name="description"
-      content="Borz Detailing Car Polish Services L.L.C — premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. Book instantly via WhatsApp or Telegram."
+      content="Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews. Book instantly via WhatsApp or Telegram."
     />
-    <meta name="keywords" content="car detailing Dubai, PPF wrapping, ceramic coating, car polishing, window tinting, Al Quoz detailing, luxury car care, paint protection film Dubai" />
+    <meta name="keywords" content="car detailing Dubai, PPF wrapping Dubai, ceramic coating Dubai, car polishing Al Quoz, window tinting Dubai, luxury car care, paint protection film Dubai, vehicle painting Dubai" />
     <meta name="author" content="Borz Detailing" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://borzdetailing.com" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz" />
+    <meta property="og:title" content="Borz Detailing — Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai" />
     <meta
       property="og:description"
-      content="Premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. Book instantly via WhatsApp or Telegram."
+      content="Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews. Book instantly via WhatsApp or Telegram."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://borzdetailing.com" />
-    <meta property="og:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" />
+    <meta property="og:image" content="https://borzdetailing.com/og-image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="en_AE" />
+    <meta property="og:site_name" content="Borz Detailing" />
     <meta name="theme-color" content="#0D0D0D" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Borz Detailing — Luxury Detailing, PPF & Ceramic in Al Quoz" />
-    <meta name="twitter:description" content="Premium detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai." />
-    <meta name="twitter:image" content="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80" />
+    <meta name="twitter:title" content="Borz Detailing — Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai" />
+    <meta name="twitter:description" content="Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews." />
+    <meta name="twitter:image" content="https://borzdetailing.com/og-image.jpg" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -160,20 +275,25 @@
       }
     </style>
 
-    <!-- LocalBusiness Schema -->
+    <!-- Enhanced Structured Data (Schema.org) -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "AutoWash",
+        "@id": "https://borzdetailing.com/#organization",
         "name": "Borz Detailing Car Polish Services L.L.C",
-        "image": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80",
-        "description": "Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai.",
+        "alternateName": "Borz Detailing",
+        "url": "https://borzdetailing.com",
+        "logo": "https://borzdetailing.com/logo.png",
+        "image": "https://borzdetailing.com/og-image.jpg",
+        "description": "Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews.",
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "Al Quoz Ind. Third - Al Quoz",
           "addressLocality": "Dubai",
           "addressRegion": "Dubai",
-          "addressCountry": "AE",
-          "streetAddress": "Al Quoz Ind. Third - Al Quoz"
+          "postalCode": "",
+          "addressCountry": "AE"
         },
         "geo": {
           "@type": "GeoCoordinates",
@@ -193,7 +313,9 @@
         "aggregateRating": {
           "@type": "AggregateRating",
           "ratingValue": "4.7",
-          "reviewCount": "32"
+          "reviewCount": "32",
+          "bestRating": "5",
+          "worstRating": "1"
         },
         "sameAs": [
           "https://instagram.com/borz_detailing_uae/?hl=en"
@@ -209,7 +331,76 @@
           "Car Polishing",
           "Window Tinting",
           "Vehicle Painting"
-        ]
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Car Detailing Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "PPF Wrapping",
+                "description": "Paint Protection Film installation for premium vehicle protection"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Ceramic Coating",
+                "description": "High-gloss ceramic coating for hydrophobic protection"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Car Polishing",
+                "description": "Professional paint correction and polishing services"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+    
+    <!-- WebPage Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://borzdetailing.com/#webpage",
+        "url": "https://borzdetailing.com",
+        "name": "Borz Detailing — Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai",
+        "description": "Premium car detailing, PPF wrapping, ceramic coating, polishing, tinting, and vehicle painting in Al Quoz, Dubai. 4.7★ rated with 32+ reviews.",
+        "inLanguage": "en-AE",
+        "isPartOf": {
+          "@id": "https://borzdetailing.com/#website"
+        },
+        "about": {
+          "@id": "https://borzdetailing.com/#organization"
+        },
+        "primaryImageOfPage": {
+          "@type": "ImageObject",
+          "url": "https://borzdetailing.com/og-image.jpg"
+        }
+      }
+    </script>
+    
+    <!-- Website Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://borzdetailing.com/#website",
+        "url": "https://borzdetailing.com",
+        "name": "Borz Detailing",
+        "description": "Luxury car detailing services in Dubai",
+        "publisher": {
+          "@id": "https://borzdetailing.com/#organization"
+        },
+        "inLanguage": "en-AE"
       }
     </script>
     
@@ -331,14 +522,6 @@
         <div class="absolute inset-0 grain"></div>
 
         <div class="absolute inset-0 -z-10">
-          <img
-            src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80"
-            srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80 400w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80 800w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80 1200w"
-            sizes="100vw"
-            alt="Borz Detailing workshop"
-            class="h-full w-full object-cover opacity-35"
-            loading="eager"
-          />
           <div class="absolute inset-0 bg-gradient-to-b from-borz-bg/10 via-borz-bg/70 to-borz-bg"></div>
         </div>
 
@@ -487,196 +670,9 @@
           </a>
         </div>
 
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Gallery images - Mobile: aspect-[4/5], Desktop: aspect-[16/10] -->
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', 'Luxury car detailing - premium finish')" role="button" tabindex="0" aria-label="View luxury car detailing image" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80', 'Luxury car detailing - premium finish')}">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&q=80 400w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80 800w, https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Luxury car detailing - premium finish"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80', 'Car paint protection film installation')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=400&q=80 400w, https://images.unsplash.com/photo-1502877338535-766e1452684a?w=800&q=80 800w, https://images.unsplash.com/photo-1502877338535-766e1452684a?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Car paint protection film installation"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80', 'Professional car polishing and detailing')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=400&q=80 400w, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&q=80 800w, https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Professional car polishing and detailing"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80', 'Ceramic coating application on luxury vehicle')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=400&q=80 400w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80 800w, https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Ceramic coating application on luxury vehicle"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80', 'Premium car wash and detailing service')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=400&q=80 400w, https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=800&q=80 800w, https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Premium car wash and detailing service"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80', 'Supercar detailing and paint correction')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=400&q=80 400w, https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=800&q=80 800w, https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Supercar detailing and paint correction"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1494905998402-395d579af36f?w=1200&q=80', 'Interior car detailing and cleaning')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1494905998402-395d579af36f?w=400&q=80 400w, https://images.unsplash.com/photo-1494905998402-395d579af36f?w=800&q=80 800w, https://images.unsplash.com/photo-1494905998402-395d579af36f?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Interior car detailing and cleaning"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200&q=80', 'Car window tinting and protection')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=400&q=80 400w, https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&q=80 800w, https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Car window tinting and protection"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="group relative overflow-hidden rounded-3xl border border-borz-stroke bg-borz-surface shadow-soft transition hover:border-white/15 cursor-pointer" onclick="openLightbox('https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200&q=80', 'Showroom-quality car finish and shine')">
-            <div class="aspect-[4/5] md:aspect-[16/10] relative">
-              <img
-                src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=400&q=80"
-                srcset="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=400&q=80 400w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=800&q=80 800w, https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?w=1200&q=80 1200w"
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                alt="Showroom-quality car finish and shine"
-                class="h-full w-full object-cover transition group-hover:scale-105"
-                loading="lazy"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-borz-bg/60 via-transparent to-transparent"></div>
-              <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition">
-                <div class="rounded-full bg-borz-gold/90 p-3 text-black">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                  </svg>
-                </div>
-              </div>
-            </div>
-          </div>
+        <!-- Gallery images will be added here with owner's photos -->
+        <div class="mt-8 text-center py-12 rounded-3xl border border-borz-stroke bg-borz-surface/40">
+          <p class="text-white/60 text-sm">Gallery images coming soon</p>
         </div>
 
         <!-- Instagram CTA -->

@@ -1,0 +1,26 @@
+{
+  "name": "borz-detailing-website",
+  "version": "1.0.0",
+  "description": "Borz Detailing website with accessibility linting and SEO checks",
+  "scripts": {
+    "lint:accessibility": "node accessibility-lint.js index.html",
+    "test:accessibility": "node accessibility-lint.js index.html",
+    "test:seo": "node scripts/validate-seo.js",
+    "test:links": "node scripts/check-links.js",
+    "test:noindex": "node scripts/check-noindex.js",
+    "test:all": "npm run test:seo && npm run test:links && npm run test:noindex",
+    "lighthouse": "lhci autorun",
+    "serve": "python3 -m http.server 8000"
+  },
+  "devDependencies": {
+    "@lhci/cli": "^0.12.0",
+    "puppeteer": "^21.5.0",
+    "cheerio": "^1.0.0-rc.12"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["accessibility", "semantic-html", "seo", "lighthouse", "ci"],
+  "author": "Borz Detailing",
+  "license": "MIT"
+}

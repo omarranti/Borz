@@ -1,3 +1,19 @@
 # Netlify redirects file
+# Canonicalization redirects (processed in order)
+
+# HTTP → HTTPS
+http://borzdetailing.com/*    https://borzdetailing.com/:splat    301!
+http://www.borzdetailing.com/*    https://borzdetailing.com/:splat    301!
+
+# WWW → Non-WWW
+https://www.borzdetailing.com/*    https://borzdetailing.com/:splat    301!
+
+# Redirect /index.html to root
+/index.html    /    301
+
+# Remove trailing slash (except root)
+/*/    /:splat    301
+
+# Catch-all for SPA (must be last)
 /*    /index.html   200
 

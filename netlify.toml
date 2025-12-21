@@ -3,11 +3,49 @@
   # No build command needed - static site
   publish = "."
 
+# Canonicalization Redirects (must be in order - most specific first)
+
+# HTTP → HTTPS redirects
 [[redirects]]
-  # Redirect root to index.html
+  from = "http://borzdetailing.com/*"
+  to = "https://borzdetailing.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.borzdetailing.com/*"
+  to = "https://borzdetailing.com/:splat"
+  status = 301
+  force = true
+
+# WWW → Non-WWW redirects
+[[redirects]]
+  from = "https://www.borzdetailing.com/*"
+  to = "https://borzdetailing.com/:splat"
+  status = 301
+  force = true
+
+# Redirect /index.html to root
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = false
+
+# Remove trailing slash (except root)
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+  force = false
+
+# Catch-all: serve index.html for all other routes (SPA support)
+# This must be LAST
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = false
 
 # Headers for better performance
 [[headers]]
@@ -29,4 +67,26 @@
   for = "/*.svg"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Preload critical resources
+[[headers]]
+  for = "/public/images/webp/optimized/hero-bg.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Link = "</public/images/webp/optimized/hero-bg.webp>; rel=preload; as=image; fetchpriority=high"
 

@@ -1,17 +1,34 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+
+# Test results
+seo-results.json
+link-results.json
+lighthouse-results/
+.lighthouseci/
+
 # OS files
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
+Thumbs.db
 
-# Editor files
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
-*~
 
-# Temporary files
+# Logs
 *.log
-*.tmp
+npm-debug.log*
+
+# Environment
+.env
+.env.local
+
+# Build outputs (if any)
+dist/
+build/
+*.min.js
+*.min.css
