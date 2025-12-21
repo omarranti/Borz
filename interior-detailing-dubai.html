@@ -4,31 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>PPF Wrapping Dubai - Paint Protection Film Installation | Borz Detailing Al Quoz</title>
+    <title>Interior Detailing Dubai - Premium Car Interior Cleaning & Restoration | Borz Detailing</title>
     <meta
       name="description"
-      content="Professional PPF wrapping in Dubai. Paint Protection Film installation for luxury cars in Al Quoz. Shield against desert sand, stone chips, and UV damage. Book your PPF installation today."
+      content="Professional interior detailing in Dubai. Deep cleaning, leather restoration, and sanitization for luxury cars in Al Quoz. Remove embedded sand, protect leather from heat damage, and restore your car's interior to showroom condition."
     />
-    <meta name="keywords" content="PPF wrapping Dubai, paint protection film Dubai, PPF installation Al Quoz, car PPF Dubai, paint protection film UAE, luxury car PPF, PPF wrap Dubai, clear bra Dubai" />
+    <meta name="keywords" content="interior detailing Dubai, car interior cleaning Dubai, luxury car interior detailing Al Quoz, leather seat restoration Dubai, interior car detailing UAE, deep interior cleaning Dubai, car upholstery cleaning Dubai, interior sanitization Dubai" />
     <meta name="author" content="Borz Detailing Car Polish Services L.L.C" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://borzdetailing.com/ppf-dubai.html" />
+    <link rel="canonical" href="https://borzdetailing.com/interior-detailing-dubai.html" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://borzdetailing.com/ppf-dubai.html" />
-    <meta property="og:title" content="PPF Wrapping Dubai - Paint Protection Film Installation | Borz Detailing" />
-    <meta property="og:description" content="Professional PPF wrapping in Dubai. Paint Protection Film installation for luxury cars in Al Quoz. Shield against desert sand, stone chips, and UV damage." />
-    <meta property="og:image" content="https://borzdetailing.com/public/images/ppf-after.jpg" />
+    <meta property="og:url" content="https://borzdetailing.com/interior-detailing-dubai.html" />
+    <meta property="og:title" content="Interior Detailing Dubai - Premium Car Interior Cleaning & Restoration" />
+    <meta property="og:description" content="Professional interior detailing in Dubai. Deep cleaning, leather restoration, and sanitization for luxury cars in Al Quoz." />
+    <meta property="og:image" content="https://borzdetailing.com/public/images/interior-after.jpg" />
     <meta property="og:locale" content="en_AE" />
     <meta property="og:site_name" content="Borz Detailing" />
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:url" content="https://borzdetailing.com/ppf-dubai.html" />
-    <meta name="twitter:title" content="PPF Wrapping Dubai - Paint Protection Film Installation | Borz Detailing" />
-    <meta name="twitter:description" content="Professional PPF wrapping in Dubai. Paint Protection Film installation for luxury cars in Al Quoz." />
-    <meta name="twitter:image" content="https://borzdetailing.com/public/images/ppf-after.jpg" />
+    <meta name="twitter:url" content="https://borzdetailing.com/interior-detailing-dubai.html" />
+    <meta name="twitter:title" content="Interior Detailing Dubai - Premium Car Interior Cleaning & Restoration" />
+    <meta name="twitter:description" content="Professional interior detailing in Dubai. Deep cleaning, leather restoration, and sanitization for luxury cars." />
+    <meta name="twitter:image" content="https://borzdetailing.com/public/images/interior-after.jpg" />
     
     <!-- Additional SEO Meta Tags -->
     <meta name="geo.region" content="AE-DU" />
@@ -57,8 +57,8 @@
     <script>
       const BORZ_LINKS = {
         whatsapp:
-          "https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20PPF%20Wrapping%20service.%20Please%20send%20me%20a%20quote.",
-        telegram: "https://t.me/BorzCarRental_Dubai_bot?start=PPFWrapping",
+          "https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20Interior%20Detailing%20service.%20Please%20send%20me%20a%20quote.",
+        telegram: "https://t.me/BorzCarRental_Dubai_bot?start=InteriorDetailing",
         instagram: "https://instagram.com/borz_detailing_uae/?hl=en",
         maps: "https://www.google.com/maps?q=Al%20Quoz%20Industrial%20Area%203%20Dubai",
       };
@@ -109,6 +109,89 @@
         outline: 2px solid #C5A059;
         outline-offset: 2px;
       }
+      /* Before/After Image Slider Styles */
+      .before-after-slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        cursor: col-resize;
+        user-select: none;
+      }
+      .before-after-slider img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        pointer-events: none;
+      }
+      .before-after-slider .after-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        clip-path: inset(0 50% 0 0);
+        transition: clip-path 0.1s ease-out;
+      }
+      .before-after-slider .slider-handle {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 4px;
+        height: 100%;
+        background: #C5A059;
+        transform: translateX(-50%);
+        z-index: 10;
+        box-shadow: 0 0 10px rgba(197, 160, 89, 0.5);
+      }
+      .before-after-slider .slider-handle::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40px;
+        height: 40px;
+        background: #C5A059;
+        border: 3px solid #0D0D0D;
+        border-radius: 50%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+      }
+      .before-after-slider .slider-handle::after {
+        content: '⟷';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: #0D0D0D;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 1;
+      }
+      .before-after-label {
+        position: absolute;
+        padding: 8px 12px;
+        background: rgba(13, 13, 13, 0.85);
+        border: 1px solid rgba(197, 160, 89, 0.3);
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        z-index: 5;
+        backdrop-filter: blur(4px);
+      }
+      .before-after-label.before-label {
+        top: 12px;
+        left: 12px;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .before-after-label.after-label {
+        top: 12px;
+        right: 12px;
+        color: #C5A059;
+      }
     </style>
 
     <!-- Structured Data -->
@@ -116,7 +199,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Service",
-        "serviceType": "PPF Wrapping",
+        "serviceType": "Interior Detailing",
         "provider": {
           "@type": "LocalBusiness",
           "name": "Borz Detailing Car Polish Services L.L.C",
@@ -134,7 +217,7 @@
           "@type": "City",
           "name": "Dubai"
         },
-        "description": "Professional Paint Protection Film (PPF) installation for luxury vehicles in Dubai. Protects against desert sand, stone chips, and UV damage."
+        "description": "Professional interior detailing services for luxury vehicles in Dubai. Deep cleaning, leather restoration, and sanitization."
       }
     </script>
   </head>
@@ -172,7 +255,7 @@
           <div class="hidden md:flex items-center gap-2">
             <a
               class="inline-flex items-center justify-center rounded-xl bg-borz-gold px-4 py-2 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
-              href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20PPF%20Wrapping%20service.%20Please%20send%20me%20a%20quote."
+              href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20Interior%20Detailing%20service.%20Please%20send%20me%20a%20quote."
               target="_blank"
               rel="noopener"
             >
@@ -234,25 +317,25 @@
           <div class="max-w-3xl">
             <div class="inline-flex items-center gap-2 rounded-full border border-borz-stroke bg-borz-surface/70 px-3 py-1 text-xs text-white/80">
               <span class="h-2 w-2 rounded-full bg-borz-gold"></span>
-              Al Quoz • Dubai • Professional PPF Installation
+              Al Quoz • Dubai • Professional Interior Detailing
             </div>
 
             <h1 class="mt-6 text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-              PPF Wrapping <span class="text-borz-gold">Dubai</span>
+              Interior Detailing <span class="text-borz-gold">Dubai</span>
             </h1>
 
             <p class="mt-4 text-lg leading-relaxed text-white/75 md:text-xl">
-              Professional Paint Protection Film installation for luxury vehicles. Shield your supercar against Dubai's harsh desert conditions, highway stone chips, and intense UV exposure.
+              Premium car interior cleaning and restoration for luxury vehicles. Remove embedded sand, protect leather from Dubai's extreme heat, and restore your car's interior to showroom condition.
             </p>
 
             <div class="mt-8 flex flex-wrap gap-4">
               <a
                 class="inline-flex items-center justify-center rounded-2xl bg-borz-gold px-6 py-4 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
-                href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20PPF%20Wrapping%20service.%20Please%20send%20me%20a%20quote."
+                href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20Interior%20Detailing%20service.%20Please%20send%20me%20a%20quote."
                 target="_blank"
                 rel="noopener"
               >
-                Get PPF Quote on WhatsApp
+                Get Interior Detailing Quote
               </a>
               <a
                 class="inline-flex items-center justify-center rounded-2xl border border-borz-stroke bg-borz-surface px-6 py-4 text-sm font-semibold text-white/90 hover:text-white hover:border-white/20 transition shadow-soft"
@@ -271,23 +354,23 @@
           <!-- Before/After Image -->
           <div class="relative h-96 rounded-3xl overflow-hidden border border-borz-stroke bg-borz-surface shadow-soft">
             <div class="before-after-slider">
-              <picture><source srcset="public/images/ppf-before.webp" type="image/webp"><img
-                src="public/images/ppf-before.jpg"
-                alt="Before PPF installation showing unprotected vehicle paint"
+              <picture><source srcset="public/images/interior-before.webp" type="image/webp"><img
+                src="public/images/interior-before.jpg"
+                alt="Before interior detailing showing dusty and worn car interior"
                 width="600"
                 height="440"
                 class="before-image"
                 loading="lazy"
-                onerror="this.src='https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80'"
+                onerror="this.src='https://images.unsplash.com/photo-1494905998402-395d579af36f?w=600&q=80'"
               /></picture>
               <div class="after-image">
-                <picture><source srcset="public/images/ppf-after.webp" type="image/webp"><img
-                  src="public/images/ppf-after.jpg"
-                  alt="After PPF installation showing protected vehicle paint with clear film"
+                <picture><source srcset="public/images/interior-after.webp" type="image/webp"><img
+                  src="public/images/interior-after.jpg"
+                  alt="After interior detailing showing pristine car interior"
                   width="600"
                   height="440"
                   loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80'"
+                  onerror="this.src='https://images.unsplash.com/photo-1494905998402-395d579af36f?w=600&q=80'"
                 /></picture>
               </div>
               <div class="slider-handle"></div>
@@ -298,9 +381,9 @@
 
           <!-- Service Information -->
           <div>
-            <h2 class="text-3xl font-semibold tracking-tight">What is PPF Wrapping?</h2>
+            <h2 class="text-3xl font-semibold tracking-tight">What is Interior Detailing?</h2>
             <p class="mt-4 text-white/75 leading-relaxed">
-              Paint Protection Film (PPF) is a transparent, self-healing polyurethane film that acts as an invisible shield for your vehicle's paint. Our precision installation process ensures seamless coverage that's virtually undetectable while providing maximum protection.
+              Interior detailing is a comprehensive deep-cleaning and restoration process for your vehicle's cabin. Our professional service removes embedded sand, dust, and debris while protecting and restoring leather, fabric, and surfaces to showroom condition.
             </p>
 
             <div class="mt-8 rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6">
@@ -308,23 +391,23 @@
               <ul class="space-y-3 text-white/75">
                 <li class="flex gap-3">
                   <span class="text-borz-gold font-bold">•</span>
-                  <span><strong class="text-white">Desert Sand Protection:</strong> Shields against fine sand abrasion from Dubai's frequent sandstorms</span>
+                  <span><strong class="text-white">Sand & Dust Removal:</strong> Eliminates embedded desert sand and fine dust particles from Dubai's frequent sandstorms</span>
                 </li>
                 <li class="flex gap-3">
                   <span class="text-borz-gold font-bold">•</span>
-                  <span><strong class="text-white">Heat Resistance:</strong> Withstands Dubai's extreme temperatures (up to 50°C) without yellowing or peeling</span>
+                  <span><strong class="text-white">Leather Protection:</strong> Prevents leather cracking and fading from Dubai's extreme heat (50°C+) and intense UV exposure</span>
                 </li>
                 <li class="flex gap-3">
                   <span class="text-borz-gold font-bold">•</span>
-                  <span><strong class="text-white">Stone Chip Defense:</strong> Protects against highway debris and stone chips common on Dubai roads</span>
+                  <span><strong class="text-white">Dashboard UV Protection:</strong> Shields dashboards and interior surfaces from sun damage and warping</span>
                 </li>
                 <li class="flex gap-3">
                   <span class="text-borz-gold font-bold">•</span>
-                  <span><strong class="text-white">UV Protection:</strong> Prevents paint oxidation and fading from intense sun exposure</span>
+                  <span><strong class="text-white">Sanitization:</strong> Eliminates bacteria and odors that thrive in Dubai's high humidity environment</span>
                 </li>
                 <li class="flex gap-3">
                   <span class="text-borz-gold font-bold">•</span>
-                  <span><strong class="text-white">Self-Healing:</strong> Minor scratches and swirls disappear with heat exposure</span>
+                  <span><strong class="text-white">Odor Removal:</strong> Removes musty smells and food odors common in hot, humid climates</span>
                 </li>
               </ul>
             </div>
@@ -332,47 +415,73 @@
         </div>
       </section>
 
-      <!-- Coverage Options -->
+      <!-- Services Included -->
       <section class="mx-auto max-w-6xl px-4 py-14">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-semibold tracking-tight">PPF Coverage Options</h2>
-          <p class="mt-2 text-white/70">Choose the level of protection that fits your needs</p>
+          <h2 class="text-3xl font-semibold tracking-tight">Our Interior Detailing Services</h2>
+          <p class="mt-2 text-white/70">Comprehensive cleaning and protection for every surface</p>
         </div>
 
-        <div class="grid gap-6 md:grid-cols-3">
+        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
-            <h3 class="text-xl font-semibold">Front End Protection</h3>
-            <p class="mt-2 text-sm text-white/70">Essential coverage for high-impact areas</p>
+            <h3 class="text-xl font-semibold mb-3">Deep Vacuuming</h3>
             <ul class="mt-4 space-y-2 text-sm text-white/75">
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Front bumper</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Hood</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Front fenders</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Side mirrors</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Carpets and floor mats</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Seats and crevices</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Trunk and storage areas</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Air vents and hard-to-reach areas</li>
             </ul>
           </div>
 
           <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft ring-1 ring-borz-gold/25">
             <div class="flex items-center justify-between mb-2">
-              <h3 class="text-xl font-semibold">Full Front</h3>
-              <span class="rounded-full bg-borz-gold px-3 py-1 text-xs font-semibold text-black">Popular</span>
+              <h3 class="text-xl font-semibold">Leather Care</h3>
+              <span class="rounded-full bg-borz-gold px-3 py-1 text-xs font-semibold text-black">Premium</span>
             </div>
-            <p class="mt-2 text-sm text-white/70">Comprehensive front-end protection</p>
             <ul class="mt-4 space-y-2 text-sm text-white/75">
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> All front-end panels</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Headlights</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> A-pillars</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Rocker panels</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Leather cleaning and conditioning</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Crack repair and restoration</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> UV protection treatment</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Color restoration</li>
             </ul>
           </div>
 
           <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
-            <h3 class="text-xl font-semibold">Full Vehicle Wrap</h3>
-            <p class="mt-2 text-sm text-white/70">Complete protection for your entire vehicle</p>
+            <h3 class="text-xl font-semibold mb-3">Dashboard & Surfaces</h3>
             <ul class="mt-4 space-y-2 text-sm text-white/75">
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Complete body coverage</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> All panels protected</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Maximum protection</li>
-              <li class="flex gap-2"><span class="text-borz-gold">•</span> Premium finish</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Dashboard cleaning and protection</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Door panels and trim</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Center console detail</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> UV protection coating</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">Window & Glass</h3>
+            <ul class="mt-4 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Interior window cleaning</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Mirror detailing</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Streak-free finish</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">Sanitization</h3>
+            <ul class="mt-4 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Steam cleaning</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Odor elimination</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Bacteria removal</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Allergen reduction</li>
+            </ul>
+          </div>
+
+          <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <h3 class="text-xl font-semibold mb-3">Upholstery Care</h3>
+            <ul class="mt-4 space-y-2 text-sm text-white/75">
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Fabric cleaning</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Stain removal</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Protection treatment</li>
+              <li class="flex gap-2"><span class="text-borz-gold">•</span> Deodorizing</li>
             </ul>
           </div>
         </div>
@@ -381,48 +490,118 @@
       <!-- Process Section -->
       <section class="mx-auto max-w-6xl px-4 py-14">
         <div class="text-center mb-12">
-          <h2 class="text-3xl font-semibold tracking-tight">Our PPF Installation Process</h2>
-          <p class="mt-2 text-white/70">Professional installation with attention to detail</p>
+          <h2 class="text-3xl font-semibold tracking-tight">Our Interior Detailing Process</h2>
+          <p class="mt-2 text-white/70">Step-by-step professional service</p>
         </div>
 
         <div class="grid gap-6 md:grid-cols-4">
           <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-6">
             <div class="text-2xl font-bold text-borz-gold mb-2">01</div>
-            <h3 class="font-semibold mb-2">Vehicle Inspection</h3>
-            <p class="text-sm text-white/70">We assess your vehicle's condition and recommend optimal coverage areas.</p>
+            <h3 class="font-semibold mb-2">Inspection</h3>
+            <p class="text-sm text-white/70">We assess your interior condition, identify problem areas, and create a customized cleaning plan.</p>
           </div>
 
           <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-6">
             <div class="text-2xl font-bold text-borz-gold mb-2">02</div>
-            <h3 class="font-semibold mb-2">Surface Preparation</h3>
-            <p class="text-sm text-white/70">Deep cleaning, paint correction, and decontamination for perfect adhesion.</p>
+            <h3 class="font-semibold mb-2">Deep Cleaning</h3>
+            <p class="text-sm text-white/70">Thorough vacuuming, steam cleaning, and specialized treatment for all surfaces and materials.</p>
           </div>
 
           <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-6">
             <div class="text-2xl font-bold text-borz-gold mb-2">03</div>
-            <h3 class="font-semibold mb-2">Precision Installation</h3>
-            <p class="text-sm text-white/70">Expert installation using premium PPF with computer-cut precision patterns.</p>
+            <h3 class="font-semibold mb-2">Restoration</h3>
+            <p class="text-sm text-white/70">Leather conditioning, crack repair, color restoration, and protection treatments applied.</p>
           </div>
 
           <div class="rounded-2xl border border-borz-stroke bg-borz-bg/60 p-6">
             <div class="text-2xl font-bold text-borz-gold mb-2">04</div>
-            <h3 class="font-semibold mb-2">Quality Check</h3>
-            <p class="text-sm text-white/70">Final inspection under workshop lights to ensure flawless finish.</p>
+            <h3 class="font-semibold mb-2">Protection</h3>
+            <p class="text-sm text-white/70">UV protection, sanitization, and final inspection to ensure showroom-quality results.</p>
           </div>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="mx-auto max-w-6xl px-4 py-14">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-semibold tracking-tight">Frequently Asked Questions</h2>
+          <p class="mt-2 text-white/70">Everything you need to know about interior detailing</p>
+        </div>
+
+        <div class="max-w-3xl mx-auto space-y-4">
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">How much does interior detailing cost in Dubai?</summary>
+            <p class="mt-4 text-white/75">Interior detailing prices vary based on vehicle size, condition, and specific services needed. Basic packages start from AED 500, while comprehensive restoration services can range from AED 1,500-3,000. Contact us for a personalized quote based on your vehicle.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">How long does interior detailing take?</summary>
+            <p class="mt-4 text-white/75">Standard interior detailing typically takes 3-5 hours. Deep cleaning and restoration services may require 6-8 hours. We'll provide an accurate timeline during your initial consultation.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">What's included in interior detailing?</summary>
+            <p class="mt-4 text-white/75">Our interior detailing includes deep vacuuming, steam cleaning, leather conditioning, dashboard protection, window cleaning, sanitization, and odor removal. Specific services depend on your chosen package.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">Can you restore leather seats?</summary>
+            <p class="mt-4 text-white/75">Yes, we specialize in leather restoration. Our services include cleaning, conditioning, crack repair, color restoration, and UV protection to prevent future damage from Dubai's harsh climate.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">How often should I get interior detailing?</summary>
+            <p class="mt-4 text-white/75">For Dubai's climate, we recommend interior detailing every 3-4 months. Vehicles exposed to frequent sandstorms or heavy use may benefit from more frequent service. Regular maintenance helps protect your investment.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">Do you clean car carpets and mats?</summary>
+            <p class="mt-4 text-white/75">Absolutely. We provide deep cleaning for carpets, floor mats, and trunk liners. This includes vacuuming, steam cleaning, stain removal, and deodorizing to remove embedded sand and dust.</p>
+          </details>
+
+          <details class="rounded-2xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft">
+            <summary class="font-semibold cursor-pointer text-lg">What products do you use for interior detailing?</summary>
+            <p class="mt-4 text-white/75">We use premium, pH-balanced products specifically designed for automotive interiors. All products are safe for leather, fabric, and sensitive surfaces, and are formulated to withstand Dubai's extreme temperatures.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- Related Services -->
+      <section class="mx-auto max-w-6xl px-4 py-14">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-semibold tracking-tight">Related Services</h2>
+          <p class="mt-2 text-white/70">Complete your car care with these services</p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <a href="exterior-detailing-dubai.html" class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft hover:border-borz-gold/50 transition">
+            <h3 class="text-xl font-semibold mb-2">Exterior Detailing</h3>
+            <p class="text-sm text-white/70">Complete the transformation with professional exterior detailing and paint protection.</p>
+          </a>
+
+          <a href="full-detailing-dubai.html" class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft hover:border-borz-gold/50 transition">
+            <h3 class="text-xl font-semibold mb-2">Full Detailing</h3>
+            <p class="text-sm text-white/70">Comprehensive interior and exterior detailing package for complete car care.</p>
+          </a>
+
+          <a href="ceramic-coating-dubai.html" class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-6 shadow-soft hover:border-borz-gold/50 transition">
+            <h3 class="text-xl font-semibold mb-2">Ceramic Coating</h3>
+            <p class="text-sm text-white/70">Protect your exterior paint with premium ceramic coating for long-lasting shine.</p>
+          </a>
         </div>
       </section>
 
       <!-- CTA Section -->
       <section class="mx-auto max-w-6xl px-4 py-14">
         <div class="rounded-3xl border border-borz-stroke bg-borz-surface/60 p-8 md:p-12 text-center shadow-soft">
-          <h2 class="text-3xl font-semibold tracking-tight">Ready to Protect Your Investment?</h2>
+          <h2 class="text-3xl font-semibold tracking-tight">Ready to Restore Your Interior?</h2>
           <p class="mt-4 text-lg text-white/75 max-w-2xl mx-auto">
-            Get a personalized quote for PPF wrapping in Dubai. Our team will assess your vehicle and recommend the best protection solution.
+            Get a personalized quote for interior detailing in Dubai. Our team will assess your vehicle and recommend the best cleaning and protection solution.
           </p>
           <div class="mt-8 flex flex-wrap justify-center gap-4">
             <a
               class="inline-flex items-center justify-center rounded-2xl bg-borz-gold px-6 py-4 text-sm font-semibold text-black hover:brightness-110 shadow-glow transition"
-              href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20PPF%20Wrapping%20service.%20Please%20send%20me%20a%20quote."
+              href="https://api.whatsapp.com/send/?phone=971563299615&text=Hi%2C%20I%27d%20like%20to%20book%20Interior%20Detailing%20service.%20Please%20send%20me%20a%20quote."
               target="_blank"
               rel="noopener"
             >
@@ -454,7 +633,7 @@
               />
             </div>
             <p class="text-sm text-white/70">
-              Premium car detailing, PPF wrapping, and ceramic coating in Al Quoz, Dubai.
+              Premium car detailing, interior cleaning, and restoration services in Al Quoz, Dubai.
             </p>
           </div>
 

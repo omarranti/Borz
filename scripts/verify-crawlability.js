@@ -172,11 +172,24 @@ function checkCanonical($, route) {
   const canonical = $('link[rel="canonical"]').attr('href');
   const expectedCanonical = `${BASE_DOMAIN}${normalizeRoute(route)}`;
   
+  // Normalize canonical URLs for comparison (handle trailing slash for root)
+  const normalizeCanonical = (url) => {
+    if (!url) return null;
+    // Remove trailing slash for root domain
+    if (url === `${BASE_DOMAIN}/` || url === BASE_DOMAIN) {
+      return BASE_DOMAIN;
+    }
+    return url;
+  };
+  
+  const normalizedCanonical = normalizeCanonical(canonical);
+  const normalizedExpected = normalizeCanonical(expectedCanonical);
+  
   return {
     success: !!canonical,
     found: canonical || null,
     expected: expectedCanonical,
-    matches: canonical === expectedCanonical,
+    matches: normalizedCanonical === normalizedExpected,
   };
 }
 
