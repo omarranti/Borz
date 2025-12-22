@@ -1,0 +1,276 @@
+{
+  "timestamp": "2025-12-21T17:04:07.878Z",
+  "baseUrl": "http://localhost:8000",
+  "baseDomain": "https://borzdetailing.com",
+  "routes": [
+    {
+      "route": "/",
+      "filePath": "index.html",
+      "checks": {
+        "fileExists": {
+          "success": true
+        },
+        "httpStatus": {
+          "status": 200,
+          "success": true,
+          "optional": false
+        },
+        "parseHtml": {
+          "success": true
+        },
+        "indexable": {
+          "success": true,
+          "hasNoindex": false,
+          "robotsContent": "index, follow"
+        },
+        "canonical": {
+          "success": true,
+          "found": "https://borzdetailing.com",
+          "expected": "https://borzdetailing.com/",
+          "matches": true
+        },
+        "title": {
+          "success": true,
+          "found": "Borz Detailing - Luxury Car Detailing, PPF & Ceramic Coating in Al Quoz, Dubai",
+          "length": 78
+        },
+        "metaDescription": {
+          "success": true,
+          "found": "Premium supercar detailing, PPF wrapping, and ceramic coating in Al Quoz, Dubai. Professional team with warranty and luxury lounge.",
+          "length": 131
+        },
+        "internalLinks": {
+          "success": true,
+          "count": 13,
+          "links": [
+            {
+              "from": "blog.html",
+              "href": "index.html"
+            },
+            {
+              "from": "blog.html",
+              "href": "index.html"
+            },
+            {
+              "from": "blog.html",
+              "href": "index.html"
+            },
+            {
+              "from": "blog.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ceramic-coating-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ceramic-coating-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ceramic-coating-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ceramic-coating-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "download.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ppf-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ppf-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ppf-dubai.html",
+              "href": "index.html"
+            },
+            {
+              "from": "ppf-dubai.html",
+              "href": "index.html"
+            }
+          ]
+        }
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "route": "/blog.html",
+      "filePath": "blog.html",
+      "checks": {
+        "fileExists": {
+          "success": true
+        },
+        "httpStatus": {
+          "status": 200,
+          "success": true,
+          "optional": false
+        },
+        "parseHtml": {
+          "success": true
+        },
+        "indexable": {
+          "success": true,
+          "hasNoindex": false,
+          "robotsContent": "index, follow"
+        },
+        "canonical": {
+          "success": true,
+          "found": "https://borzdetailing.com/blog.html",
+          "expected": "https://borzdetailing.com/blog.html",
+          "matches": true
+        },
+        "title": {
+          "success": true,
+          "found": "Car Detailing Blog - PPF & Ceramic Coating Tips for Dubai | Borz Detailing",
+          "length": 74
+        },
+        "metaDescription": {
+          "success": true,
+          "found": "Expert car detailing advice for Dubai's harsh climate. Learn how PPF protects against sandstorms and which ceramic coating works best in UAE heat. Tips from Al Quoz's premium detailing specialists.",
+          "length": 197
+        },
+        "internalLinks": {
+          "success": true,
+          "count": 5,
+          "links": [
+            {
+              "from": "blog.html",
+              "href": "blog.html"
+            },
+            {
+              "from": "blog.html",
+              "href": "blog.html"
+            },
+            {
+              "from": "blog.html",
+              "href": "blog.html"
+            },
+            {
+              "from": "index.html",
+              "href": "blog.html"
+            },
+            {
+              "from": "index.html",
+              "href": "blog.html"
+            }
+          ]
+        }
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "route": "/ppf-dubai.html",
+      "filePath": "ppf-dubai.html",
+      "checks": {
+        "fileExists": {
+          "success": true
+        },
+        "httpStatus": {
+          "status": 200,
+          "success": true,
+          "optional": false
+        },
+        "parseHtml": {
+          "success": true
+        },
+        "indexable": {
+          "success": true,
+          "hasNoindex": false,
+          "robotsContent": "index, follow"
+        },
+        "canonical": {
+          "success": true,
+          "found": "https://borzdetailing.com/ppf-dubai.html",
+          "expected": "https://borzdetailing.com/ppf-dubai.html",
+          "matches": true
+        },
+        "title": {
+          "success": true,
+          "found": "PPF Wrapping Dubai - Paint Protection Film Installation | Borz Detailing Al Quoz",
+          "length": 80
+        },
+        "metaDescription": {
+          "success": true,
+          "found": "Professional PPF wrapping in Dubai. Paint Protection Film installation for luxury cars in Al Quoz. Shield against desert sand, stone chips, and UV damage. Book your PPF installation today.",
+          "length": 188
+        },
+        "internalLinks": {
+          "success": true,
+          "count": 1,
+          "links": [
+            {
+              "from": "index.html",
+              "href": "ppf-dubai.html"
+            }
+          ]
+        }
+      },
+      "passed": true,
+      "errors": []
+    },
+    {
+      "route": "/ceramic-coating-dubai.html",
+      "filePath": "ceramic-coating-dubai.html",
+      "checks": {
+        "fileExists": {
+          "success": true
+        },
+        "httpStatus": {
+          "status": 200,
+          "success": true,
+          "optional": false
+        },
+        "parseHtml": {
+          "success": true
+        },
+        "indexable": {
+          "success": true,
+          "hasNoindex": false,
+          "robotsContent": "index, follow"
+        },
+        "canonical": {
+          "success": true,
+          "found": "https://borzdetailing.com/ceramic-coating-dubai.html",
+          "expected": "https://borzdetailing.com/ceramic-coating-dubai.html",
+          "matches": true
+        },
+        "title": {
+          "success": true,
+          "found": "Ceramic Coating Dubai - Paint Protection Film Installation | Borz Detailing Al Quoz",
+          "length": 83
+        },
+        "metaDescription": {
+          "success": true,
+          "found": "Professional ceramic coating wrapping in Dubai. Paint Protection Film installation for luxury cars in Al Quoz. Shield against desert sand, stone chips, and UV damage. Book your ceramic coating installation today.",
+          "length": 212
+        },
+        "internalLinks": {
+          "success": true,
+          "count": 1,
+          "links": [
+            {
+              "from": "index.html",
+              "href": "ceramic-coating-dubai.html"
+            }
+          ]
+        }
+      },
+      "passed": true,
+      "errors": []
+    }
+  ],
+  "summary": {
+    "total": 4,
+    "passed": 4,
+    "failed": 0
+  }
+}
