@@ -1,0 +1,489 @@
+<!--
+  PENGUIN SKIING INTRO ANIMATION - ADDITIVE CODE SNIPPETS
+  ========================================================
+  
+  This file contains code snippets to add a 3D animated penguin skiing intro
+  to your existing index.html page. Follow the instructions below to integrate.
+  
+  INSTRUCTIONS:
+  ------------
+  1. Add the CDN links in the <head> section (after existing meta tags)
+  2. Add the CSS styles in the <head> section (before </head>)
+  3. Add the HTML overlay structure before </body>
+  4. Add the JavaScript code before </body> (after existing scripts)
+-->
+
+<!-- ============================================ -->
+<!-- STEP 1: ADD THESE CDN LINKS IN <head> -->
+<!-- ============================================ -->
+<!--
+  Place these CDN links in your <head> section, after your existing meta tags
+  and before your existing stylesheets:
+-->
+
+<!-- Three.js Core -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+
+<!-- ============================================ -->
+<!-- STEP 2: ADD THIS CSS IN <head> -->
+<!-- ============================================ -->
+<!--
+  Add this <style> block in your <head> section, after your existing styles:
+-->
+
+<style>
+  /* Penguin Intro Animation Overlay */
+  #penguin-intro-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: linear-gradient(180deg, #87CEEB 0%, #E0F6FF 50%, #FFFFFF 100%);
+    opacity: 1;
+    transition: opacity 1.5s ease-out;
+    pointer-events: auto;
+    overflow: hidden;
+  }
+
+  #penguin-intro-overlay.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  #penguin-intro-overlay.hidden {
+    display: none;
+  }
+
+  #penguin-canvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  #skip-intro-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 10000;
+    padding: 12px 24px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+  }
+
+  #skip-intro-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+  }
+
+  #skip-intro-btn:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.8);
+    outline-offset: 2px;
+  }
+
+  /* Prevent autoplay on mobile devices */
+  @media (max-width: 768px) {
+    #penguin-intro-overlay {
+      display: none;
+    }
+    
+    #penguin-intro-overlay.mobile-enabled {
+      display: block;
+    }
+  }
+
+  /* Reduce motion for accessibility */
+  @media (prefers-reduced-motion: reduce) {
+    #penguin-intro-overlay {
+      display: none;
+    }
+  }
+</style>
+
+<!-- ============================================ -->
+<!-- STEP 3: ADD THIS HTML BEFORE </body> -->
+<!-- ============================================ -->
+<!--
+  Add this HTML structure before your closing </body> tag:
+-->
+
+<div id="penguin-intro-overlay">
+  <button id="skip-intro-btn" aria-label="Skip intro animation">Skip Intro</button>
+  <canvas id="penguin-canvas"></canvas>
+</div>
+
+<!-- ============================================ -->
+<!-- STEP 4: ADD THIS JAVASCRIPT BEFORE </body> -->
+<!-- ============================================ -->
+<!--
+  Add this <script> block before your closing </body> tag,
+  after your existing scripts:
+-->
+
+<script>
+  (function() {
+    'use strict';
+
+    // Configuration
+    const CONFIG = {
+      duration: 6000, // 6 seconds
+      fadeOutDuration: 1500,
+      penguinSpeed: 0.02,
+      snowCount: 200,
+      skipMobile: true, // Skip on mobile by default
+    };
+
+    // Check if should skip animation
+    function shouldSkipAnimation() {
+      // Skip on mobile if configured
+      if (CONFIG.skipMobile && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        return true;
+      }
+      
+      // Skip if user prefers reduced motion
+      if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        return true;
+      }
+      
+      // Check if already shown (localStorage)
+      if (localStorage.getItem('penguin-intro-skipped') === 'true') {
+        return true;
+      }
+      
+      return false;
+    }
+
+    // Initialize animation
+    function initPenguinAnimation() {
+      const overlay = document.getElementById('penguin-intro-overlay');
+      const canvas = document.getElementById('penguin-canvas');
+      const skipBtn = document.getElementById('skip-intro-btn');
+
+      if (!overlay || !canvas) return;
+
+      // Skip if needed
+      if (shouldSkipAnimation()) {
+        overlay.classList.add('hidden');
+        return;
+      }
+
+      // Enable on mobile if user explicitly wants it
+      if (window.innerWidth <= 768) {
+        overlay.classList.add('mobile-enabled');
+      }
+
+      // Scene setup
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      );
+      const renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        antialias: true,
+        alpha: false,
+        powerPreference: 'high-performance'
+      });
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // Limit pixel ratio for performance
+      renderer.shadowMap.enabled = true;
+      renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+      // Lighting
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+      scene.add(ambientLight);
+
+      const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+      directionalLight.position.set(5, 10, 5);
+      directionalLight.castShadow = true;
+      scene.add(directionalLight);
+
+      // Camera position
+      camera.position.set(0, 3, 8);
+      camera.lookAt(0, 0, 0);
+
+      // Create ski slopes (low-poly terrain)
+      function createSkiSlopes() {
+        const slopeGeometry = new THREE.PlaneGeometry(50, 30, 20, 20);
+        
+        // Add some height variation for slopes
+        const vertices = slopeGeometry.attributes.position.array;
+        for (let i = 0; i < vertices.length; i += 3) {
+          const x = vertices[i];
+          const z = vertices[i + 2];
+          // Create wave-like terrain
+          vertices[i + 1] = Math.sin(x * 0.2) * 0.5 + Math.cos(z * 0.15) * 0.3;
+        }
+        slopeGeometry.attributes.position.needsUpdate = true;
+        slopeGeometry.computeVertexNormals();
+
+        const slopeMaterial = new THREE.MeshLambertMaterial({
+          color: 0xffffff,
+          wireframe: false
+        });
+
+        const slopes = new THREE.Mesh(slopeGeometry, slopeMaterial);
+        slopes.rotation.x = -Math.PI / 2;
+        slopes.position.y = -2;
+        slopes.receiveShadow = true;
+        scene.add(slopes);
+
+        return slopes;
+      }
+
+      // Create low-poly penguin with skis
+      function createPenguin() {
+        const penguinGroup = new THREE.Group();
+
+        // Body (ellipsoid)
+        const bodyGeometry = new THREE.SphereGeometry(0.4, 8, 8);
+        const bodyMaterial = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
+        const body = new THREE.Mesh(bodyGeometry, bodyMaterial);
+        body.scale.set(1, 1.2, 1);
+        body.position.y = 0.5;
+        body.castShadow = true;
+        penguinGroup.add(body);
+
+        // Head
+        const headGeometry = new THREE.SphereGeometry(0.3, 8, 8);
+        const headMaterial = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
+        const head = new THREE.Mesh(headGeometry, headMaterial);
+        head.position.set(0, 1.1, 0);
+        head.castShadow = true;
+        penguinGroup.add(head);
+
+        // Beak
+        const beakGeometry = new THREE.ConeGeometry(0.08, 0.15, 6);
+        const beakMaterial = new THREE.MeshLambertMaterial({ color: 0xFFA500 });
+        const beak = new THREE.Mesh(beakGeometry, beakMaterial);
+        beak.rotation.z = Math.PI / 2;
+        beak.position.set(0.35, 1.1, 0);
+        penguinGroup.add(beak);
+
+        // Belly (white)
+        const bellyGeometry = new THREE.SphereGeometry(0.25, 8, 8);
+        const bellyMaterial = new THREE.MeshLambertMaterial({ color: 0xffffff });
+        const belly = new THREE.Mesh(bellyGeometry, bellyMaterial);
+        belly.scale.set(1, 1.3, 1);
+        belly.position.set(0, 0.5, 0.15);
+        penguinGroup.add(belly);
+
+        // Wings (simplified)
+        const wingGeometry = new THREE.BoxGeometry(0.15, 0.4, 0.3);
+        const wingMaterial = new THREE.MeshLambertMaterial({ color: 0x1a1a1a });
+        
+        const leftWing = new THREE.Mesh(wingGeometry, wingMaterial);
+        leftWing.position.set(-0.5, 0.6, 0);
+        leftWing.rotation.z = 0.3;
+        penguinGroup.add(leftWing);
+
+        const rightWing = new THREE.Mesh(wingGeometry, wingMaterial);
+        rightWing.position.set(0.5, 0.6, 0);
+        rightWing.rotation.z = -0.3;
+        penguinGroup.add(rightWing);
+
+        // Skis
+        const skiGeometry = new THREE.BoxGeometry(0.1, 0.05, 1.5);
+        const skiMaterial = new THREE.MeshLambertMaterial({ color: 0xFF0000 });
+        
+        const leftSki = new THREE.Mesh(skiGeometry, skiMaterial);
+        leftSki.position.set(-0.2, -0.1, 0);
+        leftSki.rotation.x = -0.1;
+        penguinGroup.add(leftSki);
+
+        const rightSki = new THREE.Mesh(skiGeometry, skiMaterial);
+        rightSki.position.set(0.2, -0.1, 0);
+        rightSki.rotation.x = -0.1;
+        penguinGroup.add(rightSki);
+
+        // Ski poles
+        const poleGeometry = new THREE.CylinderGeometry(0.01, 0.01, 0.8);
+        const poleMaterial = new THREE.MeshLambertMaterial({ color: 0x333333 });
+        
+        const leftPole = new THREE.Mesh(poleGeometry, poleMaterial);
+        leftPole.position.set(-0.3, 0.3, -0.3);
+        leftPole.rotation.x = 0.5;
+        penguinGroup.add(leftPole);
+
+        const rightPole = new THREE.Mesh(poleGeometry, poleMaterial);
+        rightPole.position.set(0.3, 0.3, -0.3);
+        rightPole.rotation.x = 0.5;
+        penguinGroup.add(rightPole);
+
+        penguinGroup.position.set(-8, 0, 0);
+        penguinGroup.castShadow = true;
+
+        return penguinGroup;
+      }
+
+      // Create snow particles
+      function createSnow() {
+        const snowGeometry = new THREE.BufferGeometry();
+        const snowCount = CONFIG.snowCount;
+        const positions = new Float32Array(snowCount * 3);
+        const velocities = [];
+
+        for (let i = 0; i < snowCount * 3; i += 3) {
+          positions[i] = (Math.random() - 0.5) * 50; // x
+          positions[i + 1] = Math.random() * 30 + 5; // y
+          positions[i + 2] = (Math.random() - 0.5) * 30; // z
+          velocities.push({
+            x: (Math.random() - 0.5) * 0.02,
+            y: -Math.random() * 0.03 - 0.01,
+            z: (Math.random() - 0.5) * 0.02
+          });
+        }
+
+        snowGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const snowMaterial = new THREE.PointsMaterial({
+          color: 0xffffff,
+          size: 0.1,
+          transparent: true,
+          opacity: 0.8,
+          blending: THREE.AdditiveBlending
+        });
+
+        const snow = new THREE.Points(snowGeometry, snowMaterial);
+        scene.add(snow);
+
+        return { snow, velocities };
+      }
+
+      // Initialize scene elements
+      const slopes = createSkiSlopes();
+      const penguin = createPenguin();
+      scene.add(penguin);
+      const { snow, velocities } = createSnow();
+
+      // Animation variables
+      let startTime = Date.now();
+      let animationFrameId;
+      let isAnimating = true;
+
+      // Animation loop
+      function animate() {
+        if (!isAnimating) return;
+
+        animationFrameId = requestAnimationFrame(animate);
+
+        const elapsed = Date.now() - startTime;
+        const progress = elapsed / CONFIG.duration;
+
+        // Move penguin from left to right
+        if (progress < 1) {
+          penguin.position.x = -8 + (progress * 16); // Move from -8 to 8
+          
+          // Add skiing motion: slight rotation and bounce
+          penguin.rotation.z = Math.sin(progress * Math.PI * 4) * 0.1; // Side-to-side skiing motion
+          penguin.position.y = Math.sin(progress * Math.PI * 2) * 0.2; // Slight bounce
+          penguin.rotation.x = Math.sin(progress * Math.PI * 2) * 0.05; // Forward/back tilt
+        }
+
+        // Update snow particles
+        const positions = snow.geometry.attributes.position.array;
+        for (let i = 0; i < velocities.length; i++) {
+          const idx = i * 3;
+          positions[idx] += velocities[i].x;
+          positions[idx + 1] += velocities[i].y;
+          positions[idx + 2] += velocities[i].z;
+
+          // Reset snow that falls below
+          if (positions[idx + 1] < -5) {
+            positions[idx] = (Math.random() - 0.5) * 50;
+            positions[idx + 1] = 35;
+            positions[idx + 2] = (Math.random() - 0.5) * 30;
+          }
+        }
+        snow.geometry.attributes.position.needsUpdate = true;
+
+        // Rotate camera slightly for dynamic view
+        camera.position.x = Math.sin(elapsed * 0.0005) * 2;
+        camera.lookAt(penguin.position);
+
+        renderer.render(scene, camera);
+
+        // Fade out and cleanup
+        if (elapsed >= CONFIG.duration) {
+          overlay.classList.add('fade-out');
+          setTimeout(() => {
+            isAnimating = false;
+            if (animationFrameId) {
+              cancelAnimationFrame(animationFrameId);
+            }
+            overlay.classList.add('hidden');
+            
+            // Cleanup Three.js resources
+            renderer.dispose();
+            scene.traverse((object) => {
+              if (object.geometry) object.geometry.dispose();
+              if (object.material) {
+                if (Array.isArray(object.material)) {
+                  object.material.forEach(m => m.dispose());
+                } else {
+                  object.material.dispose();
+                }
+              }
+            });
+          }, CONFIG.fadeOutDuration);
+        }
+      }
+
+      // Skip button handler
+      skipBtn.addEventListener('click', () => {
+        localStorage.setItem('penguin-intro-skipped', 'true');
+        isAnimating = false;
+        if (animationFrameId) {
+          cancelAnimationFrame(animationFrameId);
+        }
+        overlay.classList.add('fade-out');
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          renderer.dispose();
+          scene.traverse((object) => {
+            if (object.geometry) object.geometry.dispose();
+            if (object.material) {
+              if (Array.isArray(object.material)) {
+                object.material.forEach(m => m.dispose());
+              } else {
+                object.material.dispose();
+              }
+            }
+          });
+        }, CONFIG.fadeOutDuration);
+      });
+
+      // Handle window resize
+      function handleResize() {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+      }
+      window.addEventListener('resize', handleResize, { passive: true });
+
+      // Start animation
+      animate();
+    }
+
+    // Initialize when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPenguinAnimation);
+    } else {
+      initPenguinAnimation();
+    }
+  })();
+</script>
+
